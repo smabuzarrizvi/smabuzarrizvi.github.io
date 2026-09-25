@@ -1,0 +1,87 @@
+{
+  "_comment": "Status is computed automatically from 'start'/'end' (end year before the current year = Completed). Set \"status\" explicitly to override (Active | Completed | Planned).",
+  "projects": [
+    {
+      "title": "Hybrid Quantum-Classical Computation for Optimization and Machine Learning",
+      "start": 2021, "end": 2022,
+      "funder": "Brain Korea 21 (BK21), South Korea",
+      "role": "Principal Investigator",
+      "areas": ["Quantum Computing", "Quantum Machine Learning"],
+      "themes": ["qml", "vqa"]
+    },
+    {
+      "title": "Variational Quantum Computing for Optimization: Bridging Quantum Computing, Machine Learning, and Quantum Algorithms",
+      "start": 2023, "end": 2024,
+      "funder": "Brain Korea 21 (BK21), South Korea",
+      "role": "Principal Investigator",
+      "areas": ["Quantum Computing", "Quantum Machine Learning"],
+      "themes": ["vqa", "qml"]
+    },
+    {
+      "title": "Foundations for Computing-Intensive Quantum Communications: Toward Meta-Privacy",
+      "start": 2025, "end": 2027,
+      "funder": "National Research Foundation of Korea (NRF)",
+      "role": "Team Member",
+      "areas": ["Quantum Communication"],
+      "themes": ["qcomm"]
+    },
+    {
+      "title": "Research Promotion and Competitiveness Enhancement of the Quantum Information Technology Application Research Institute, Global Software Convergence Research Institute",
+      "start": 2025, "end": 2026,
+      "funder": "Kyung Hee University",
+      "role": "Team Member",
+      "areas": ["Research Programs"]
+    },
+    {
+      "title": "Graduate School of Convergence Security, Kyung Hee University",
+      "start": 2024, "end": 2025,
+      "funder": "Institute of Information & Communications Technology Planning & Evaluation (IITP)",
+      "role": "Team Member",
+      "areas": ["Security", "Research Programs"]
+    },
+    {
+      "title": "KGCC International Joint Research Group for Computing-Converged Next-Generation Communications",
+      "start": 2023, "end": 2024,
+      "funder": "Kyung Hee University",
+      "role": "Team Member",
+      "areas": ["Next-Generation Communications"]
+    },
+    {
+      "title": "BK21 Education and Research Group for Innovative Human Resources in Convergence Future Communications",
+      "start": 2022, "end": 2027,
+      "funder": "National Research Foundation of Korea (NRF)",
+      "role": "Team Member",
+      "areas": ["Next-Generation Communications", "Research Programs"]
+    },
+    {
+      "title": "Wi-Qi BRL: Toward Integrating 6G Wireless and 2G Quantum",
+      "start": 2022, "end": 2025,
+      "funder": "National Research Foundation of Korea (NRF)",
+      "role": "Team Member",
+      "areas": ["Quantum Communication", "Next-Generation Communications"],
+      "themes": ["qcomm"]
+    },
+    {
+      "title": "Foundations for Quantum Networking with Quantum Enigmata",
+      "start": 2021, "end": 2024,
+      "funder": "National Research Foundation of Korea (NRF)",
+      "role": "Team Member",
+      "areas": ["Quantum Communication"],
+      "themes": ["qcomm"]
+    },
+    {
+      "title": "Development of 6H Next-Generation Mobile Communications Technology",
+      "start": 2021, "end": 2026,
+      "funder": "Institute of Information & Communications Technology Planning & Evaluation (IITP)",
+      "role": "Team Member",
+      "areas": ["Next-Generation Communications"]
+    },
+    {
+      "title": "Convergence Engineering Institute for Emerging Communication Technology",
+      "start": 2021, "end": 2023,
+      "funder": "National Research Foundation of Korea (NRF)",
+      "role": "Team Member",
+      "areas": ["Next-Generation Communications", "Research Programs"]
+    }
+  ]
+}

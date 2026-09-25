@@ -1,0 +1,132 @@
+{
+  "_comment": "Categories: education | position | research | publication | conference | award | patent | certification. 'date' is YYYY, YYYY-MM, or 'present'. 'papers' lists publication ids from publications.json.",
+  "events": [
+    {
+      "date": "present",
+      "category": "research",
+      "title": "Ph.D. research at CQILAB",
+      "institution": "Kyung Hee University",
+      "description": "Ongoing doctoral research on quantum machine learning, hybrid quantum–classical algorithms, reinforcement-learning-based quantum control, and secure quantum communication."
+    },
+    {
+      "date": "2026",
+      "category": "publication",
+      "title": "Journal papers in ACM Computing Surveys and IEEE TNSE",
+      "description": "A survey of quantum machine learning for drug discovery (ACM Computing Surveys) and a study of quantum full-duplex anonymous communication in adversarial quantum networks (IEEE Transactions on Network Science and Engineering).",
+      "papers": ["duong2026qmldrug", "khan2026fullduplex"]
+    },
+    {
+      "date": "2026",
+      "category": "conference",
+      "title": "ICOIN 2026 paper",
+      "description": "Deep reinforcement learning for optimal pulse shaping in single-photon quantum emitters, at the 40th International Conference on Information Networking.",
+      "papers": ["rizvi2026pulse"]
+    },
+    {
+      "date": "2026",
+      "category": "patent",
+      "title": "Korean patent application on quantum reservoir learning for Rydberg lattice control",
+      "description": "Quantum reservoir learning for a reinforcement-learning-optimized pulse and Hamiltonian control system for a Rydberg lattice (Application No. 10-2026-0044766, submitted)."
+    },
+    {
+      "date": "2025",
+      "category": "publication",
+      "title": "Four journal papers, including IEEE TNSE and IEEE Communications Letters",
+      "description": "First-author work on controlled quantum semantic communication for industrial CPS networks and on hybrid quantum–classical vision models, plus co-authored work on MIMO quantum communication over correlated pure-loss channels and VQE-based traffic routing and EV charging scheduling.",
+      "papers": ["rizvi2025semantic", "rizvi2025qmlvision", "rehman2025mimo", "khalid2025vqetraffic"]
+    },
+    {
+      "date": "2025",
+      "category": "award",
+      "title": "Best Paper Award, KICS Conference 2025",
+      "description": "For “Analytical Design of an LC Double-Notch Purcell Filter for Superconducting Quantum Circuits.”",
+      "papers": ["gholamalishahiharouni2025purcell"]
+    },
+    {
+      "date": "2024",
+      "category": "conference",
+      "title": "Papers at INISCOM 2024 and ICTC 2024",
+      "description": "Variational quantum eigensolver for network scheduling using a QUBO formulation, and adaptive quantum readout error mitigation with transfer learning.",
+      "papers": ["rizvi2024vqequbo", "paracha2024readout"]
+    },
+    {
+      "date": "2023",
+      "category": "award",
+      "title": "Best Paper Award, INISCOM 2023",
+      "description": "For “Neural Networks with Variational Quantum Circuits.”",
+      "papers": ["rizvi2023nnvqc"]
+    },
+    {
+      "date": "2023",
+      "category": "research",
+      "title": "Principal Investigator, second BK21 project",
+      "description": "Variational Quantum Computing for Optimization: Bridging Quantum Computing, Machine Learning, and Quantum Algorithms (Brain Korea 21, 2023–2024)."
+    },
+    {
+      "date": "2023",
+      "category": "patent",
+      "title": "Two Korean patent applications on quantum error mitigation",
+      "description": "Error mitigation for noisy intermediate-scale quantum (NISQ) computation (No. 10-2023-0002208) and error mitigation in the quantum Fourier transform (No. 10-2023-0158507)."
+    },
+    {
+      "date": "2022",
+      "category": "publication",
+      "title": "First journal paper",
+      "description": "Multiclass classification of metrologically resourceful tripartite quantum states with deep neural networks, published in Sensors.",
+      "papers": ["rizvi2022tripartite"]
+    },
+    {
+      "date": "2022",
+      "category": "award",
+      "title": "Best Paper Award, KICS Conference 2022",
+      "description": "For “Machine Learning for Qubit State Estimation on IBM Quantum Computer,” one of four KICS 2022 papers on quantum optimal control, measurement error mitigation, and quantum-assisted reinforcement learning.",
+      "papers": ["rizvi2022qubitstate", "rizvi2022optimalcontrol", "rizvi2022measurement", "zaman2022qarl"]
+    },
+    {
+      "date": "2021",
+      "category": "research",
+      "title": "Principal Investigator, first BK21 project",
+      "description": "Hybrid Quantum-Classical Computation for Optimization and Machine Learning (Brain Korea 21, 2021–2022)."
+    },
+    {
+      "date": "2021-07",
+      "category": "certification",
+      "title": "Qiskit Global Summer School on Quantum Machine Learning",
+      "institution": "IBM Quantum",
+      "link": "https://challenges.quantum.ibm.com/qgss21"
+    },
+    {
+      "date": "2021-03",
+      "category": "position",
+      "title": "Joined CQILAB as Graduate Research Associate",
+      "institution": "Kyung Hee University",
+      "description": "Research on quantum state classification, error mitigation on NISQ devices, variational quantum algorithms on IBM Quantum backends, and quantum algorithms for next-generation intelligent networks."
+    },
+    {
+      "date": "2021-03",
+      "category": "education",
+      "title": "Began Ph.D. in Electronics and Information Convergence Engineering",
+      "institution": "Kyung Hee University, Yongin-si, South Korea"
+    },
+    {
+      "date": "2018-10",
+      "category": "position",
+      "title": "DSP Engineer, Microwave Engineering Research Lab",
+      "institution": "National University of Sciences and Technology (NUST)",
+      "description": "Hardware–software co-design on Xilinx Zynq-7000 SoC platforms and real-time FPGA signal-processing pipelines for microwave system testbeds (Oct. 2018 – Feb. 2021)."
+    },
+    {
+      "date": "2018-06",
+      "category": "education",
+      "title": "B.Sc. in Electrical Engineering",
+      "institution": "National University of Sciences and Technology (NUST), Rawalpindi, Pakistan",
+      "description": "Graduated with a GPA of 3.50/4.00."
+    },
+    {
+      "date": "2014-09",
+      "category": "education",
+      "title": "Began undergraduate studies in Electrical Engineering",
+      "institution": "National University of Sciences and Technology (NUST), Rawalpindi, Pakistan"
+    }
+  ]
+}

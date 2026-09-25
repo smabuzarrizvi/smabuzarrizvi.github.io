@@ -1,0 +1,48 @@
+{
+  "_comment": "Research themes. 'id' must match the theme keys used in publications.json and projects.json. Add \"image\": \"assets/images/<file>\" to show a figure on the card.",
+  "themes": [
+    {
+      "id": "qml",
+      "icon": "brain-circuit",
+      "title": "Quantum Machine Learning",
+      "summary": "Machine-learning frameworks for quantum state classification and discrimination, hybrid quantum–classical neural networks built from variational quantum circuits, hybrid quantum–classical vision models, and quantum-assisted reinforcement learning.",
+      "keywords": ["Quantum state classification", "Variational quantum circuits", "Hybrid quantum–classical models", "Quantum reinforcement learning"]
+    },
+    {
+      "id": "vqa",
+      "icon": "network",
+      "title": "Variational Algorithms & Quantum Optimization",
+      "summary": "Variational quantum circuits on IBM Quantum backends for hybrid quantum–classical optimization, including VQE- and QUBO-based formulations for network scheduling, traffic routing, EV charging scheduling, and other NP-hard decision problems in next-generation intelligent networks.",
+      "keywords": ["VQE", "QUBO", "Network scheduling", "Resource optimization"]
+    },
+    {
+      "id": "qcomm",
+      "icon": "shield-check",
+      "title": "Quantum Communication & Networks",
+      "summary": "Protocols and channel models for reliable and privacy-preserving quantum networks: controlled quantum semantic communication for industrial cyber-physical systems, full-duplex anonymous communication in adversarial quantum networks, and MIMO quantum communication over correlated pure-loss channels.",
+      "keywords": ["Quantum semantic communication", "Anonymous communication", "Quantum MIMO", "Secure quantum communication"]
+    },
+    {
+      "id": "qctrl",
+      "icon": "atom",
+      "title": "Quantum Control & Hardware",
+      "summary": "Reinforcement-learning-based quantum control and pulse-level gate design: quantum optimal control with pulses, deep reinforcement learning for pulse shaping in single-photon emitters, RL-based NISQ state preparation, quantum reservoir learning for Rydberg-lattice control, and Purcell-filter design for superconducting circuits.",
+      "keywords": ["Pulse-level control", "Reinforcement learning", "Rydberg lattices", "Superconducting circuits"]
+    },
+    {
+      "id": "qem",
+      "icon": "cpu",
+      "title": "Error Mitigation & NISQ Computing",
+      "summary": "Error mitigation for noisy intermediate-scale quantum devices: measurement and readout error mitigation, adaptive readout error mitigation with transfer learning, and machine-learning-based qubit state estimation on IBM Quantum hardware.",
+      "keywords": ["Readout error mitigation", "Transfer learning", "Qubit state estimation", "IBM Quantum"]
+    }
+  ],
+  "skills": [
+    { "group": "Quantum computing", "icon": "atom", "items": ["Qiskit", "PennyLane", "QuTiP", "IBM Quantum backends", "CPU/GPU-based quantum simulation", "Variational quantum algorithms (VQE, QUBO)", "Quantum circuits"] },
+    { "group": "Machine learning", "icon": "brain-circuit", "items": ["TensorFlow", "Keras", "Deep neural networks", "Reinforcement learning", "Transfer learning"] },
+    { "group": "Programming", "icon": "file-text", "items": ["Python", "C/C++", "MATLAB", "LaTeX"] },
+    { "group": "Hardware & signal processing", "icon": "cpu", "items": ["Xilinx Zynq-7000 SoC", "ARM Cortex-A9 (embedded C)", "Verilog", "VHDL", "Vivado", "FPGA DSP pipelines (FIR, FFT, fixed-point)", "ADC/DAC data acquisition"] },
+    { "group": "Research areas", "icon": "flask-conical", "items": ["Quantum machine learning", "Hybrid quantum–classical algorithms", "Secure quantum communication", "Quantum control", "Quantum error mitigation", "Quantum information theory"] },
+    { "group": "Professional", "icon": "users", "items": ["Research proposal writing", "Project management", "Mentoring researchers", "Manuscript preparation and reviewer responses"] }
+  ]
+}

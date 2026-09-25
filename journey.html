@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Journey — Syed Muhammad Abuzar Rizvi</title>
+  <meta name="description" content="Chronological academic timeline of Syed Muhammad Abuzar Rizvi: education, research positions, publications, best paper awards, patents and conferences.">
+  <meta name="author" content="Syed Muhammad Abuzar Rizvi">
+  <link rel="canonical" href="https://smabuzarrizvi.github.io/website/journey.html">
+  <meta name="theme-color" content="#f8f7f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1320" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Syed Muhammad Abuzar Rizvi">
+  <meta property="og:title" content="Academic Journey — Syed Muhammad Abuzar Rizvi">
+  <meta property="og:description" content="Chronological academic timeline of Syed Muhammad Abuzar Rizvi: education, research positions, publications, best paper awards, patents and conferences.">
+  <meta property="og:url" content="https://smabuzarrizvi.github.io/website/journey.html">
+  <meta property="og:image" content="https://smabuzarrizvi.github.io/website/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Syed Muhammad Abuzar Rizvi — Ph.D. candidate in quantum computing, Kyung Hee University">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Academic Journey — Syed Muhammad Abuzar Rizvi">
+  <meta name="twitter:description" content="Chronological academic timeline of Syed Muhammad Abuzar Rizvi: education, research positions, publications, best paper awards, patents and conferences.">
+  <meta name="twitter:image" content="https://smabuzarrizvi.github.io/website/assets/images/og-image.png">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-serif-4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="js/main.js" defer></script>
+  <script src="js/publications.js" defer></script>
+  <script src="js/analytics.js" defer></script>
+</head>
+<body data-page="journey">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="./">S.M.A. Rizvi<span class="brand-mark">.</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="./">Home</a></li>
+          <li><a href="journey.html" aria-current="page">Journey</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-sun"></use></svg><svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-moon"></use></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg class="icon icon-menu" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-menu"></use></svg><svg class="icon icon-x" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-x"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Academic journey</p>
+        <h1>From signal processing to quantum information</h1>
+        <p class="lede">A chronological record of my education, research positions, publications, awards and patents — from electrical engineering at NUST to doctoral research in quantum computing at Kyung Hee University.</p>
+      </div>
+    </section>
+    <nav class="subnav" aria-label="On this page"><div class="container"><ul><li><a href="#timeline">Timeline</a></li><li><a href="#travel">Conferences &amp; places</a></li></ul></div></nav>
+    <section class="section" id="timeline" aria-labelledby="timeline-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="timeline-title">Timeline</h2>
+          <div class="chips" id="timeline-filters" role="group" aria-label="Filter timeline by category"></div>
+        </div>
+        <div id="timeline-root" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="travel" aria-labelledby="travel-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 id="travel-title">Conferences &amp; places</h2>
+            <p>Places where I have studied and worked, and the conferences where my work and that of my co-authors has appeared.</p>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:28px">
+          <div class="map-wrap" id="places-map" role="img" aria-label="World map marking places of study and work"></div>
+          <ul class="map-legend" id="places-legend"></ul>
+        </div>
+        <ul class="conf-list" id="conf-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p>&copy; <span data-year></span> Syed Muhammad Abuzar Rizvi</p>
+        <p class="small">Ph.D. Candidate, Kyung Hee University &middot; CQILAB</p>
+      </div>
+      <ul class="social" data-social="compact" aria-label="Profiles"></ul>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "name": "Syed Muhammad Abuzar Rizvi",
+  "shortName": "S.M.A. Rizvi",
+  "position": "Ph.D. Candidate · Graduate Research Associate",
+  "university": "Kyung Hee University",
+  "department": "Department of Electronics and Information Convergence Engineering",
+  "lab": "CQILAB",
+  "location": "Yongin-si, South Korea",
+  "headline": "Ph.D. Candidate | Quantum Computing | Quantum Machine Learning | Quantum Communication",
+  "photo": "assets/images/profile.svg",
+  "email": "smabuzarrizvi@khu.ac.kr",
+  "cv": "assets/files/CV.pdf",
+  "links": {
+    "scholar": "https://scholar.google.com/citations?user=A_in-QMAAAAJ&hl=en",
+    "github": "https://github.com/smabuzarrizvi",
+    "linkedin": "https://www.linkedin.com/in/smabuzarrizvi/",
+    "orcid": "",
+    "researchgate": "",
+    "labPage": ""
+  },
+  "highlightNames": ["S.M.A. Rizvi", "S. M. A. Rizvi", "Syed Muhammad Abuzar Rizvi"],
+  "metrics": {
+    "_comment": "Optional. Copy these from your Google Scholar profile and update 'asOf'. Leave a value as null to hide its card.",
+    "citations": null,
+    "hIndex": null,
+    "i10Index": null,
+    "asOf": ""
+  },
+  "analytics": {
+    "_comment": "See README > Visitor analytics. Leave goatcounter empty to disable tracking entirely.",
+    "goatcounter": "",
+    "liveTotalCounter": false
+  },
+  "github": {
+    "username": "smabuzarrizvi",
+    "showActivity": true,
+    "maxRepos": 6
+  }
+}

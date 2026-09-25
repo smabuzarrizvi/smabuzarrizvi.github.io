@@ -1,0 +1,54 @@
+{
+  "education": [
+    {
+      "degree": "Ph.D. in Electronics and Information Convergence Engineering",
+      "institution": "Kyung Hee University (KHU)",
+      "location": "Yongin-si, South Korea",
+      "start": "Mar. 2021", "end": "Present",
+      "lab": "CQILAB",
+      "gpa": "4.09/4.30",
+      "specialization": "Quantum computing, quantum machine learning, hybrid quantum–classical algorithms, and quantum communication",
+      "advisor": "",
+      "thesis": "",
+      "expectedGraduation": ""
+    },
+    {
+      "degree": "B.Sc. in Electrical Engineering",
+      "institution": "National University of Sciences and Technology (NUST)",
+      "location": "Rawalpindi, Pakistan",
+      "start": "Sep. 2014", "end": "Jun. 2018",
+      "gpa": "3.50/4.00"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Graduate Research Associate",
+      "org": "Kyung Hee University (CQILAB)",
+      "location": "Yongin-si, South Korea",
+      "start": "Mar. 2021", "end": "Present",
+      "type": "Research",
+      "bullets": [
+        "Developed machine-learning-based frameworks for quantum state classification, state discrimination, and quantum error mitigation on noisy intermediate-scale quantum devices.",
+        "Engineered variational quantum circuits on IBM Quantum backends for hybrid quantum–classical optimization, including VQE- and QUBO-based formulations for network scheduling and NP-hard decision problems.",
+        "Designed and evaluated quantum algorithms for next-generation intelligent networks, with applications in edge intelligence, resource optimization, and secure quantum communication.",
+        "Investigated reinforcement-learning-based quantum control, pulse-level gate design, and anonymous quantum semantic communication protocols for reliable and privacy-preserving quantum networks.",
+        "Led and contributed to journal manuscript preparation, including technical writing, result analysis, figure design, reviewer-response preparation, and submissions.",
+        "Contributed to funded research programs through proposal writing, project planning, technical documentation, progress reports, and research outcome preparation.",
+        "Supported lab operations by coordinating research activities, mentoring junior students, assisting new student admissions and onboarding, and guiding students in experiments, implementation, and academic writing."
+      ]
+    },
+    {
+      "role": "DSP Engineer",
+      "org": "Microwave Engineering Research Lab (NUST)",
+      "location": "Rawalpindi, Pakistan",
+      "start": "Oct. 2018", "end": "Feb. 2021",
+      "type": "Engineering",
+      "bullets": [
+        "Architected hardware–software co-design solutions on Xilinx Zynq-7000 SoC platforms, programming the embedded ARM Cortex-A9 processor in C for low-latency hardware control and real-time data orchestration.",
+        "Engineered high-throughput RTL modules in Verilog and VHDL using Vivado, implementing real-time DSP pipelines for FIR filtering, FFT processing, fixed-point conversion, and DDR memory interfacing.",
+        "Designed and integrated high-speed mixed-signal processing interfaces for ADC/DAC data acquisition, SMA-based signal routing, and clock synchronization in microwave system testbeds.",
+        "Translated signal-processing algorithms into deployable FPGA-based hardware implementations, ensuring robust system integration, timing closure, and reliable real-time performance."
+      ]
+    }
+  ]
+}

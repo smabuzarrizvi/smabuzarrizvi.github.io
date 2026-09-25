@@ -1,0 +1,15 @@
+{
+  "_comment": "Conference papers are linked by publication id. Add city/country/lat/lon for an entry to plot it on the map; entries without coordinates are listed but not plotted. 'places' are locations of study and work from the CV.",
+  "conferences": [
+    { "name": "International Conference on Information Networking", "short": "ICOIN", "edition": "40th", "year": 2026, "city": "", "country": "", "lat": null, "lon": null, "papers": ["rizvi2026pulse"] },
+    { "name": "Korea Information and Communications Society Conference", "short": "KICS", "year": 2025, "city": "", "country": "", "lat": null, "lon": null, "papers": ["gholamalishahiharouni2025purcell", "gondel2025nisqstateprep"] },
+    { "name": "International Conference on Information and Communication Technology Convergence", "short": "ICTC", "edition": "15th", "year": 2024, "city": "", "country": "", "lat": null, "lon": null, "papers": ["paracha2024readout"] },
+    { "name": "International Conference on Industrial Networks and Intelligent Systems", "short": "INISCOM", "year": 2024, "city": "", "country": "", "lat": null, "lon": null, "papers": ["rizvi2024vqequbo"] },
+    { "name": "International Conference on Industrial Networks and Intelligent Systems", "short": "INISCOM", "year": 2023, "city": "", "country": "", "lat": null, "lon": null, "papers": ["rizvi2023nnvqc"] },
+    { "name": "Korea Information and Communications Society Conference", "short": "KICS", "year": 2022, "city": "", "country": "", "lat": null, "lon": null, "papers": ["rizvi2022qubitstate", "rizvi2022optimalcontrol", "rizvi2022measurement", "zaman2022qarl"] }
+  ],
+  "places": [
+    { "label": "Kyung Hee University", "detail": "Ph.D. and Graduate Research Associate, 2021–present", "city": "Yongin-si", "country": "South Korea", "lat": 37.24, "lon": 127.18 },
+    { "label": "National University of Sciences and Technology", "detail": "B.Sc. (2014–2018) and DSP Engineer (2018–2021)", "city": "Rawalpindi", "country": "Pakistan", "lat": 33.6, "lon": 73.05 }
+  ]
+}

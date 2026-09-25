@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publications — Syed Muhammad Abuzar Rizvi</title>
+  <meta name="description" content="Journal and conference publications of S.M.A. Rizvi in quantum machine learning, quantum communication, variational quantum algorithms, quantum control and quantum error mitigation, with BibTeX and citations.">
+  <meta name="author" content="Syed Muhammad Abuzar Rizvi">
+  <link rel="canonical" href="https://smabuzarrizvi.github.io/website/publications.html">
+  <meta name="theme-color" content="#f8f7f3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1320" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Syed Muhammad Abuzar Rizvi">
+  <meta property="og:title" content="Publications — Syed Muhammad Abuzar Rizvi">
+  <meta property="og:description" content="Journal and conference publications of S.M.A. Rizvi in quantum machine learning, quantum communication, variational quantum algorithms, quantum control and quantum error mitigation, with BibTeX and citations.">
+  <meta property="og:url" content="https://smabuzarrizvi.github.io/website/publications.html">
+  <meta property="og:image" content="https://smabuzarrizvi.github.io/website/assets/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Syed Muhammad Abuzar Rizvi — Ph.D. candidate in quantum computing, Kyung Hee University">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Publications — Syed Muhammad Abuzar Rizvi">
+  <meta name="twitter:description" content="Journal and conference publications of S.M.A. Rizvi in quantum machine learning, quantum communication, variational quantum algorithms, quantum control and quantum error mitigation, with BibTeX and citations.">
+  <meta name="twitter:image" content="https://smabuzarrizvi.github.io/website/assets/images/og-image.png">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/source-serif-4-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="js/main.js" defer></script>
+  <script src="js/publications.js" defer></script>
+  <script src="js/analytics.js" defer></script>
+</head>
+<body data-page="publications">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="./">S.M.A. Rizvi<span class="brand-mark">.</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="./">Home</a></li>
+          <li><a href="journey.html">Journey</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="publications.html" aria-current="page">Publications</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-sun"></use></svg><svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-moon"></use></svg>
+      </button>
+      <button class="icon-btn nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg class="icon icon-menu" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-menu"></use></svg><svg class="icon icon-x" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-x"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Publications</p>
+        <h1>Publications</h1>
+        <p class="lede">Peer-reviewed journal articles and conference papers. Use the search box and filters to narrow the list; every entry offers a BibTeX record and a formatted citation.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:8px" aria-label="Publication list">
+      <div class="container">
+        <form class="card pub-controls" id="pub-controls" role="search" onsubmit="return false">
+          <div class="row">
+            <label class="search">
+              <span class="visually-hidden">Search publications</span>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-search"></use></svg>
+              <input class="input" type="search" id="pub-search" placeholder="Search title, author, venue, year or keyword" autocomplete="off">
+            </label>
+          </div>
+          <div class="row">
+            <label><span class="visually-hidden">Research area</span>
+              <select class="select" id="pub-theme"><option value="">All research areas</option></select></label>
+            <label><span class="visually-hidden">Year</span>
+              <select class="select" id="pub-year"><option value="">All years</option></select></label>
+            <label><span class="visually-hidden">Sort order</span>
+              <select class="select" id="pub-sort"><option value="desc">Newest first</option><option value="asc">Oldest first</option></select></label>
+          </div>
+          <div class="row row-full" style="justify-content:space-between">
+            <div class="chips" id="pub-types" role="group" aria-label="Publication type"></div>
+            <span class="result-count" id="pub-count" aria-live="polite"></span>
+          </div>
+        </form>
+        <div id="pub-root"></div>
+        <p class="small muted">Citation counts are maintained on <a href="https://scholar.google.com/citations?user=A_in-QMAAAAJ&amp;hl=en" rel="noopener">Google Scholar</a>. Patents are listed under <a href="achievements.html#patents">Achievements</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p>&copy; <span data-year></span> Syed Muhammad Abuzar Rizvi</p>
+        <p class="small">Ph.D. Candidate, Kyung Hee University &middot; CQILAB</p>
+      </div>
+      <ul class="social" data-social="compact" aria-label="Profiles"></ul>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
