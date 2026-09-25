@@ -5,7 +5,7 @@ Every list on the site (publications, projects, timeline, awards, patents, educa
 
 Live URL: **https://smabuzarrizvi.github.io/**. It is served from the repository [`smabuzarrizvi/smabuzarrizvi.github.io`](https://github.com/smabuzarrizvi/smabuzarrizvi.github.io).
 
-All content comes from the CV (`main.pdf`, Sept. 2026). Nothing was invented. Fields the CV does not provide, such as DOIs, advisor, thesis title, conference locations and citation metrics, are left empty, and the site hides them automatically until you fill them in.
+All content comes from the CV (`main.pdf`, Sept. 2026) and the Google Scholar profile (citation metrics, per-paper citations, and the 2026 IEEE TNSE paper on quantum fusion learning). Nothing was invented. Fields the CV does not provide, such as DOIs, advisor, thesis title, conference locations and citation metrics, are left empty, and the site hides them automatically until you fill them in.
 
 ---
 
@@ -333,7 +333,7 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 
 - [ ] **Profile photo.** A placeholder silhouette is in place ([Profile photo](#profile-photo)).
 - [ ] **ORCID, ResearchGate and lab/university profile URLs** (`data/profile.json → links`). These are not in the CV.
-- [ ] **Google Scholar metrics** (citations, h-index, i10-index). Scholar could not be reached while this site was built, so these cards are hidden.
+- [x] **Google Scholar metrics and per-paper citation counts.** Added from your Scholar profile (Sep 2026). Update `metrics` in `profile.json` and the `citations` fields in `publications.json` when you want them refreshed.
 - [ ] **DOIs and publisher links** for each paper. These enable the DOI and Publisher buttons and richer BibTeX. PDFs of accepted manuscripts are optional, where the publishers allow them.
 - [ ] **Publication status** where relevant. Examples: whether the 2025/2026 IEEE TNSE papers are in early access; whether you want per-paper `status` badges.
 - [ ] **Ph.D. advisor, dissertation title and expected graduation date** (`data/cv.json`). They are hidden until filled in.

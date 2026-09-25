@@ -18,13 +18,17 @@
     "researchgate": "",
     "labPage": ""
   },
-  "highlightNames": ["S.M.A. Rizvi", "S. M. A. Rizvi", "Syed Muhammad Abuzar Rizvi"],
+  "highlightNames": [
+    "S.M.A. Rizvi",
+    "S. M. A. Rizvi",
+    "Syed Muhammad Abuzar Rizvi"
+  ],
   "metrics": {
     "_comment": "Optional. Copy these from your Google Scholar profile and update 'asOf'. Leave a value as null to hide its card.",
-    "citations": null,
-    "hIndex": null,
-    "i10Index": null,
-    "asOf": ""
+    "citations": 81,
+    "hIndex": 5,
+    "i10Index": 3,
+    "asOf": "Sep 2026"
   },
   "analytics": {
     "_comment": "See README > Visitor analytics. Leave goatcounter empty to disable tracking entirely.",

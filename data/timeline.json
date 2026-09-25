@@ -11,16 +11,22 @@
     {
       "date": "2026",
       "category": "publication",
-      "title": "Journal papers in ACM Computing Surveys and IEEE TNSE",
-      "description": "A survey of quantum machine learning for drug discovery (ACM Computing Surveys) and a study of quantum full-duplex anonymous communication in adversarial quantum networks (IEEE Transactions on Network Science and Engineering).",
-      "papers": ["duong2026qmldrug", "khan2026fullduplex"]
+      "title": "Three journal papers in ACM Computing Surveys and IEEE TNSE",
+      "description": "A survey of quantum machine learning for drug discovery (ACM Computing Surveys), and two papers in IEEE Transactions on Network Science and Engineering: quantum full-duplex anonymous communication in adversarial quantum networks, and quantum fusion learning for 6G networks with Kolmogorov-Arnold networks.",
+      "papers": [
+        "duong2026qmldrug",
+        "khan2026fullduplex",
+        "paracha2026quantumfusion"
+      ]
     },
     {
       "date": "2026",
       "category": "conference",
       "title": "ICOIN 2026 paper",
       "description": "Deep reinforcement learning for optimal pulse shaping in single-photon quantum emitters, at the 40th International Conference on Information Networking.",
-      "papers": ["rizvi2026pulse"]
+      "papers": [
+        "rizvi2026pulse"
+      ]
     },
     {
       "date": "2026",
@@ -33,28 +39,40 @@
       "category": "publication",
       "title": "Four journal papers, including IEEE TNSE and IEEE Communications Letters",
       "description": "First-author work on controlled quantum semantic communication for industrial CPS networks and on hybrid quantum–classical vision models, plus co-authored work on MIMO quantum communication over correlated pure-loss channels and VQE-based traffic routing and EV charging scheduling.",
-      "papers": ["rizvi2025semantic", "rizvi2025qmlvision", "rehman2025mimo", "khalid2025vqetraffic"]
+      "papers": [
+        "rizvi2025semantic",
+        "rizvi2025qmlvision",
+        "rehman2025mimo",
+        "khalid2025vqetraffic"
+      ]
     },
     {
       "date": "2025",
       "category": "award",
       "title": "Best Paper Award, KICS Conference 2025",
       "description": "For “Analytical Design of an LC Double-Notch Purcell Filter for Superconducting Quantum Circuits.”",
-      "papers": ["gholamalishahiharouni2025purcell"]
+      "papers": [
+        "gholamalishahiharouni2025purcell"
+      ]
     },
     {
       "date": "2024",
       "category": "conference",
       "title": "Papers at INISCOM 2024 and ICTC 2024",
       "description": "Variational quantum eigensolver for network scheduling using a QUBO formulation, and adaptive quantum readout error mitigation with transfer learning.",
-      "papers": ["rizvi2024vqequbo", "paracha2024readout"]
+      "papers": [
+        "rizvi2024vqequbo",
+        "paracha2024readout"
+      ]
     },
     {
       "date": "2023",
       "category": "award",
       "title": "Best Paper Award, INISCOM 2023",
       "description": "For “Neural Networks with Variational Quantum Circuits.”",
-      "papers": ["rizvi2023nnvqc"]
+      "papers": [
+        "rizvi2023nnvqc"
+      ]
     },
     {
       "date": "2023",
@@ -73,14 +91,21 @@
       "category": "publication",
       "title": "First journal paper",
       "description": "Multiclass classification of metrologically resourceful tripartite quantum states with deep neural networks, published in Sensors.",
-      "papers": ["rizvi2022tripartite"]
+      "papers": [
+        "rizvi2022tripartite"
+      ]
     },
     {
       "date": "2022",
       "category": "award",
       "title": "Best Paper Award, KICS Conference 2022",
       "description": "For “Machine Learning for Qubit State Estimation on IBM Quantum Computer,” one of four KICS 2022 papers on quantum optimal control, measurement error mitigation, and quantum-assisted reinforcement learning.",
-      "papers": ["rizvi2022qubitstate", "rizvi2022optimalcontrol", "rizvi2022measurement", "zaman2022qarl"]
+      "papers": [
+        "rizvi2022qubitstate",
+        "rizvi2022optimalcontrol",
+        "rizvi2022measurement",
+        "zaman2022qarl"
+      ]
     },
     {
       "date": "2021",

@@ -248,16 +248,18 @@
         const granted = ach.patents.filter(function (x) { return /grant/i.test(x.status); }).length;
         const pi = projects.filter(function (x) { return /principal/i.test(x.role); }).length;
         const m = profile.metrics || {};
-        const stats = [
+        const src = 'Google Scholar' + (m.asOf ? ' · ' + m.asOf : '');
+        const stats = [];
+        if (m.citations != null) stats.push({ v: m.citations, l: 'Citations', s: src });
+        if (m.hIndex != null) stats.push({ v: m.hIndex, l: 'h-index', s: src });
+        if (m.i10Index != null) stats.push({ v: m.i10Index, l: 'i10-index', s: src });
+        stats.push(
           { v: n('journal'), l: 'Journal articles' },
           { v: n('conference'), l: 'Conference papers' },
           { v: ach.patents.length, l: 'Patents', s: granted ? granted + ' granted · ' + (ach.patents.length - granted) + ' pending' : '' },
           { v: ach.awards.length, l: 'Best paper awards' },
           { v: projects.length, l: 'Funded projects', s: pi ? pi + ' as principal investigator' : '' }
-        ];
-        if (m.citations != null) stats.push({ v: m.citations, l: 'Citations', s: 'Google Scholar' + (m.asOf ? ', ' + m.asOf : '') });
-        if (m.hIndex != null) stats.push({ v: m.hIndex, l: 'h-index', s: 'Google Scholar' + (m.asOf ? ', ' + m.asOf : '') });
-        if (m.i10Index != null) stats.push({ v: m.i10Index, l: 'i10-index', s: 'Google Scholar' + (m.asOf ? ', ' + m.asOf : '') });
+        );
         $('#stats').innerHTML = stats.filter(function (s) { return s.v; }).map(function (s) {
           return '<div class="stat"><span class="value">' + esc(s.v) + '</span><span class="label">' + esc(s.l) + '</span>' + (s.s ? '<span class="sub">' + esc(s.s) + '</span>' : '') + '</div>';
         }).join('');

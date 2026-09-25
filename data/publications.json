@@ -1,4 +1,5 @@
 {
+  "_comment": "citations: copied manually from Google Scholar (see profile.json metrics.asOf).",
   "themes": {
     "qcomm": "Quantum Communication & Networks",
     "qml": "Quantum Machine Learning",
@@ -15,8 +16,30 @@
       "venue": "IEEE Transactions on Network Science and Engineering",
       "year": 2026,
       "impactFactor": "7.9",
-      "themes": ["qcomm"],
-      "topics": ["Quantum Communication", "Anonymous Communication", "Quantum Networks"]
+      "themes": [
+        "qcomm"
+      ],
+      "topics": [
+        "Quantum Communication",
+        "Anonymous Communication",
+        "Quantum Networks"
+      ]
+    },
+    {
+      "id": "paracha2026quantumfusion",
+      "type": "journal",
+      "title": "Quantum Fusion Learning for 6G Networks with Kolmogorov-Arnold Networks",
+      "authors": "U.I. Paracha, S.M.A. Rizvi, U. Khalid, T.Q. Duong, M.Z. Win, H. Shin",
+      "venue": "IEEE Transactions on Network Science and Engineering",
+      "year": 2026,
+      "themes": [
+        "qml"
+      ],
+      "topics": [
+        "Quantum Machine Learning",
+        "Kolmogorov-Arnold Networks",
+        "6G Networks"
+      ]
     },
     {
       "id": "duong2026qmldrug",
@@ -29,8 +52,15 @@
       "issue": "8",
       "pages": "1–36",
       "impactFactor": "28.0",
-      "themes": ["qml"],
-      "topics": ["Quantum Machine Learning", "Survey", "Drug Discovery"]
+      "themes": [
+        "qml"
+      ],
+      "topics": [
+        "Quantum Machine Learning",
+        "Survey",
+        "Drug Discovery"
+      ],
+      "citations": 4
     },
     {
       "id": "khalid2025vqetraffic",
@@ -43,8 +73,15 @@
       "issue": "17",
       "pages": "2761",
       "impactFactor": "2.2",
-      "themes": ["vqa"],
-      "topics": ["Variational Quantum Eigensolver", "Quantum Optimization", "Intelligent Transportation"]
+      "themes": [
+        "vqa"
+      ],
+      "topics": [
+        "Variational Quantum Eigensolver",
+        "Quantum Optimization",
+        "Intelligent Transportation"
+      ],
+      "citations": 4
     },
     {
       "id": "rizvi2025qmlvision",
@@ -57,8 +94,15 @@
       "issue": "16",
       "pages": "2645",
       "impactFactor": "2.2",
-      "themes": ["qml"],
-      "topics": ["Quantum Machine Learning", "Hybrid Quantum-Classical", "Computer Vision"]
+      "themes": [
+        "qml"
+      ],
+      "topics": [
+        "Quantum Machine Learning",
+        "Hybrid Quantum-Classical",
+        "Computer Vision"
+      ],
+      "citations": 26
     },
     {
       "id": "rizvi2025semantic",
@@ -67,9 +111,18 @@
       "authors": "S.M.A. Rizvi, U. Khalid, S. Chatzinotas, T.Q. Duong, H. Shin",
       "venue": "IEEE Transactions on Network Science and Engineering",
       "year": 2025,
+      "volume": "13",
+      "pages": "996–1009",
       "impactFactor": "7.9",
-      "themes": ["qcomm"],
-      "topics": ["Quantum Communication", "Semantic Communication", "Industrial CPS"]
+      "themes": [
+        "qcomm"
+      ],
+      "topics": [
+        "Quantum Communication",
+        "Semantic Communication",
+        "Industrial CPS"
+      ],
+      "citations": 16
     },
     {
       "id": "rehman2025mimo",
@@ -82,8 +135,15 @@
       "issue": "7",
       "pages": "1544–1548",
       "impactFactor": "4.4",
-      "themes": ["qcomm"],
-      "topics": ["Quantum Communication", "Quantum MIMO", "Pure-Loss Channels"]
+      "themes": [
+        "qcomm"
+      ],
+      "topics": [
+        "Quantum Communication",
+        "Quantum MIMO",
+        "Pure-Loss Channels"
+      ],
+      "citations": 6
     },
     {
       "id": "rizvi2022tripartite",
@@ -96,8 +156,15 @@
       "issue": "18",
       "pages": "6767",
       "impactFactor": "3.5",
-      "themes": ["qml"],
-      "topics": ["Quantum State Classification", "Quantum Metrology", "Deep Learning"]
+      "themes": [
+        "qml"
+      ],
+      "topics": [
+        "Quantum State Classification",
+        "Quantum Metrology",
+        "Deep Learning"
+      ],
+      "citations": 7
     },
     {
       "id": "rizvi2026pulse",
@@ -108,8 +175,15 @@
       "shortVenue": "ICOIN 2026",
       "year": 2026,
       "pages": "180–184",
-      "themes": ["qctrl", "qml"],
-      "topics": ["Quantum Control", "Reinforcement Learning", "Single-Photon Sources"]
+      "themes": [
+        "qctrl",
+        "qml"
+      ],
+      "topics": [
+        "Quantum Control",
+        "Reinforcement Learning",
+        "Single-Photon Sources"
+      ]
     },
     {
       "id": "gholamalishahiharouni2025purcell",
@@ -121,8 +195,14 @@
       "year": 2025,
       "pages": "330–331",
       "award": "Best Paper Award",
-      "themes": ["qctrl"],
-      "topics": ["Superconducting Circuits", "Purcell Filter", "Quantum Hardware"]
+      "themes": [
+        "qctrl"
+      ],
+      "topics": [
+        "Superconducting Circuits",
+        "Purcell Filter",
+        "Quantum Hardware"
+      ]
     },
     {
       "id": "gondel2025nisqstateprep",
@@ -133,8 +213,15 @@
       "shortVenue": "KICS 2025",
       "year": 2025,
       "pages": "950–951",
-      "themes": ["qctrl", "qml"],
-      "topics": ["State Preparation", "Reinforcement Learning", "NISQ"]
+      "themes": [
+        "qctrl",
+        "qml"
+      ],
+      "topics": [
+        "State Preparation",
+        "Reinforcement Learning",
+        "NISQ"
+      ]
     },
     {
       "id": "paracha2024readout",
@@ -144,8 +231,16 @@
       "venue": "15th International Conference on Information and Communication Technology Convergence (ICTC)",
       "shortVenue": "ICTC 2024",
       "year": 2024,
-      "themes": ["qem", "qml"],
-      "topics": ["Error Mitigation", "Readout Errors", "Transfer Learning"]
+      "themes": [
+        "qem",
+        "qml"
+      ],
+      "topics": [
+        "Error Mitigation",
+        "Readout Errors",
+        "Transfer Learning"
+      ],
+      "citations": 4
     },
     {
       "id": "rizvi2024vqequbo",
@@ -156,8 +251,15 @@
       "shortVenue": "INISCOM 2024",
       "year": 2024,
       "pages": "46–57",
-      "themes": ["vqa"],
-      "topics": ["Variational Quantum Eigensolver", "QUBO", "Network Scheduling"]
+      "themes": [
+        "vqa"
+      ],
+      "topics": [
+        "Variational Quantum Eigensolver",
+        "QUBO",
+        "Network Scheduling"
+      ],
+      "citations": 2
     },
     {
       "id": "rizvi2023nnvqc",
@@ -169,8 +271,16 @@
       "year": 2023,
       "pages": "203–214",
       "award": "Best Paper Award",
-      "themes": ["qml", "vqa"],
-      "topics": ["Quantum Neural Networks", "Variational Quantum Circuits", "Hybrid Quantum-Classical"]
+      "themes": [
+        "qml",
+        "vqa"
+      ],
+      "topics": [
+        "Quantum Neural Networks",
+        "Variational Quantum Circuits",
+        "Hybrid Quantum-Classical"
+      ],
+      "citations": 12
     },
     {
       "id": "rizvi2022optimalcontrol",
@@ -181,8 +291,13 @@
       "shortVenue": "KICS 2022",
       "year": 2022,
       "pages": "153–154",
-      "themes": ["qctrl"],
-      "topics": ["Quantum Optimal Control", "Pulse-Level Control"]
+      "themes": [
+        "qctrl"
+      ],
+      "topics": [
+        "Quantum Optimal Control",
+        "Pulse-Level Control"
+      ]
     },
     {
       "id": "rizvi2022measurement",
@@ -193,8 +308,14 @@
       "shortVenue": "KICS 2022",
       "year": 2022,
       "pages": "1393–1394",
-      "themes": ["qem"],
-      "topics": ["Error Mitigation", "Measurement Errors", "NISQ"]
+      "themes": [
+        "qem"
+      ],
+      "topics": [
+        "Error Mitigation",
+        "Measurement Errors",
+        "NISQ"
+      ]
     },
     {
       "id": "zaman2022qarl",
@@ -205,8 +326,13 @@
       "shortVenue": "KICS 2022",
       "year": 2022,
       "pages": "516–518",
-      "themes": ["qml"],
-      "topics": ["Quantum Reinforcement Learning", "Quantum Machine Learning"]
+      "themes": [
+        "qml"
+      ],
+      "topics": [
+        "Quantum Reinforcement Learning",
+        "Quantum Machine Learning"
+      ]
     },
     {
       "id": "rizvi2022qubitstate",
@@ -218,8 +344,15 @@
       "year": 2022,
       "pages": "472–474",
       "award": "Best Paper Award",
-      "themes": ["qml", "qem"],
-      "topics": ["Qubit State Estimation", "Machine Learning", "IBM Quantum"]
+      "themes": [
+        "qml",
+        "qem"
+      ],
+      "topics": [
+        "Qubit State Estimation",
+        "Machine Learning",
+        "IBM Quantum"
+      ]
     }
   ]
 }
