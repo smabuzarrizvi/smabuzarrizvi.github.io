@@ -59,7 +59,7 @@ All content comes from the CV (`main.pdf`, Sept. 2026) and the Google Scholar pr
 │   └── country-centroids.json  ISO country code → map coordinates (static)
 ├── assets/
 │   ├── files/CV.pdf        Public CV (phone, home address and referees' contacts removed)
-│   ├── images/             profile.jpg, og-image.png, favicon.svg, world-dots.svg
+│   ├── images/             portrait.jpg, og-image.png, favicon.svg, world-dots.svg
 │   ├── icons/sprite.svg    Self-hosted SVG icons (Lucide + Simple Icons)
 │   └── fonts/              Self-hosted Inter + Source Serif 4 (variable, Latin subset)
 ├── scripts/update_visitors.py        Pulls aggregate stats from GoatCounter's API
@@ -225,7 +225,7 @@ The current `CV.pdf` is a **public version** of the CV you supplied. The phone n
 
 ### Profile photo
 
-The photo is `assets/images/profile.jpg`, a square crop shown at 240×240. To replace it, save a new square photo under the same name, ideally at least 480×480 for sharpness on high-resolution screens and under 150 KB, then push.
+The photo is `assets/images/portrait.jpg`, a 480×480 square crop shown at 240×240. To replace it, save a new square photo (at least 480×480, under 150 KB) **under a new file name**, and update `photo` in `data/profile.json` and the `<img data-profile-photo>` in `index.html`. A new name means browsers and GitHub Pages' cache load the new image immediately instead of showing the old one for up to 10 minutes.
 
 ### Profile links and Google Scholar metrics
 
