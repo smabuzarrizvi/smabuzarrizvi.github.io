@@ -59,7 +59,7 @@ All content comes from the CV (`main.pdf`, Sept. 2026) and the Google Scholar pr
 │   └── country-centroids.json  ISO country code → map coordinates (static)
 ├── assets/
 │   ├── files/CV.pdf        Public CV (phone, home address and referees' contacts removed)
-│   ├── images/             profile.svg (placeholder), og-image.png, favicon.svg, world-dots.svg
+│   ├── images/             profile.jpg, og-image.png, favicon.svg, world-dots.svg
 │   ├── icons/sprite.svg    Self-hosted SVG icons (Lucide + Simple Icons)
 │   └── fonts/              Self-hosted Inter + Source Serif 4 (variable, Latin subset)
 ├── scripts/update_visitors.py        Pulls aggregate stats from GoatCounter's API
@@ -224,9 +224,7 @@ The current `CV.pdf` is a **public version** of the CV you supplied. The phone n
 
 ### Profile photo
 
-1. Save a square photo, at least 480×480 and ideally under 150 KB, as `assets/images/profile.jpg`.
-2. Set `"photo": "assets/images/profile.jpg"` in `data/profile.json`.
-3. Optionally, also change the `src` of the `<img data-profile-photo>` in `index.html` so the photo appears before JavaScript runs.
+The photo is `assets/images/profile.jpg`, a square crop shown at 240×240. To replace it, save a new square photo under the same name, ideally at least 480×480 for sharpness on high-resolution screens and under 150 KB, then push.
 
 ### Profile links and Google Scholar metrics
 
@@ -331,7 +329,7 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 
 ## Checklist: what you still need to provide
 
-- [ ] **Profile photo.** A placeholder silhouette is in place ([Profile photo](#profile-photo)).
+- [x] **Profile photo.** Added. A higher-resolution original (480×480 or larger) would look sharper on high-resolution screens.
 - [ ] **ORCID, ResearchGate and lab/university profile URLs** (`data/profile.json → links`). These are not in the CV.
 - [x] **Google Scholar metrics and per-paper citation counts.** Added from your Scholar profile (Sep 2026). Update `metrics` in `profile.json` and the `citations` fields in `publications.json` when you want them refreshed.
 - [ ] **DOIs and publisher links** for each paper. These enable the DOI and Publisher buttons and richer BibTeX. PDFs of accepted manuscripts are optional, where the publishers allow them.
