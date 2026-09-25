@@ -56,6 +56,15 @@
       ]
     },
     {
+      "date": "2025",
+      "category": "position",
+      "title": "Online research internship: 2025 IonQ Summer Research Mentoring Program",
+      "institution": "Quantum Information Research Support Center (QCenter)",
+      "description": "Investigated explainability in quantum machine learning with the SeeQI Research Group under Dr. Oliver Knitter, focusing on how data encoding, entangling gates, and circuit depth affect model interpretability.",
+      "link": "assets/images/certificates/ionq-summer-research-2025.jpg",
+      "linkLabel": "View certificate"
+    },
+    {
       "date": "2024",
       "category": "conference",
       "title": "Papers at INISCOM 2024 and ICTC 2024",

@@ -4,7 +4,8 @@
       "degree": "Ph.D. in Electronics and Information Convergence Engineering",
       "institution": "Kyung Hee University (KHU)",
       "location": "Yongin-si, South Korea",
-      "start": "Mar. 2021", "end": "Present",
+      "start": "Mar. 2021",
+      "end": "Present",
       "lab": "CQILAB",
       "gpa": "4.09/4.30",
       "specialization": "Quantum computing, quantum machine learning, hybrid quantum–classical algorithms, and quantum communication",
@@ -16,7 +17,8 @@
       "degree": "B.Sc. in Electrical Engineering",
       "institution": "National University of Sciences and Technology (NUST)",
       "location": "Rawalpindi, Pakistan",
-      "start": "Sep. 2014", "end": "Jun. 2018",
+      "start": "Sep. 2014",
+      "end": "Jun. 2018",
       "gpa": "3.50/4.00"
     }
   ],
@@ -25,7 +27,8 @@
       "role": "Graduate Research Associate",
       "org": "Kyung Hee University (CQILAB)",
       "location": "Yongin-si, South Korea",
-      "start": "Mar. 2021", "end": "Present",
+      "start": "Mar. 2021",
+      "end": "Present",
       "type": "Research",
       "bullets": [
         "Developed machine-learning-based frameworks for quantum state classification, state discrimination, and quantum error mitigation on noisy intermediate-scale quantum devices.",
@@ -38,10 +41,30 @@
       ]
     },
     {
+      "role": "Online Research Intern, 2025 IonQ Summer Research Mentoring Program",
+      "org": "Quantum Information Research Support Center (QCenter)",
+      "location": "Online",
+      "start": "Summer 2025",
+      "end": "",
+      "type": "Internship",
+      "bullets": [
+        "Investigated explainability in quantum machine learning under the mentorship of Dr. Oliver Knitter, studying how data encoding, entangling gates, and circuit depth affect model interpretability.",
+        "Took part as a member of the SeeQI Research Group; received a Certificate of Participation from QCenter."
+      ],
+      "links": [
+        {
+          "label": "View certificate",
+          "url": "assets/images/certificates/ionq-summer-research-2025.jpg",
+          "icon": "file-badge"
+        }
+      ]
+    },
+    {
       "role": "DSP Engineer",
       "org": "Microwave Engineering Research Lab (NUST)",
       "location": "Rawalpindi, Pakistan",
-      "start": "Oct. 2018", "end": "Feb. 2021",
+      "start": "Oct. 2018",
+      "end": "Feb. 2021",
       "type": "Engineering",
       "bullets": [
         "Architected hardware–software co-design solutions on Xilinx Zynq-7000 SoC platforms, programming the embedded ARM Cortex-A9 processor in C for low-latency hardware control and real-time data orchestration.",

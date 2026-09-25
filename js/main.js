@@ -335,7 +335,7 @@
               let links = papers.map(function (p) {
                 return '<a href="publications.html#' + esc(p.id) + '">' + icon('file-text') + esc(p.shortVenue || shortVenue(p.venue)) + ' ' + esc(p.year) + '</a>';
               });
-              if (e.link) links.push('<a href="' + esc(e.link) + '" rel="noopener">' + icon('external-link') + 'Details</a>');
+              if (e.link) links.push('<a href="' + esc(e.link) + '"' + (/^https?:/.test(e.link) ? ' rel="noopener"' : '') + '>' + icon('external-link') + esc(e.linkLabel || 'Details') + '</a>');
               return '<li class="tl-item cat-' + esc(e.category) + '"><article class="card tl-card">' +
                 '<div class="tl-head"><span class="tl-cat">' + icon(c.icon) + esc(c.label) + '</span>' + (/^\d{4}-\d{2}/.test(e.date) ? '<span class="tl-date">' + esc(fmtDate(e.date)) + '</span>' : '') + '</div>' +
                 '<h3>' + esc(e.title) + '</h3>' +
@@ -489,7 +489,10 @@
       }).join('');
       $('#cert-root').innerHTML = a.certifications.map(function (c) {
         return '<article class="card award-card"><span class="award-icon">' + icon('file-badge') + '</span><div><span class="year">' + esc(c.date) + '</span>' +
-          '<h3>' + (c.link ? '<a href="' + esc(c.link) + '" rel="noopener">' + esc(c.title) + '</a>' : esc(c.title)) + '</h3><p class="muted">' + esc(c.issuer) + '</p></div></article>';
+          '<h3>' + (c.link ? '<a href="' + esc(c.link) + '" rel="noopener">' + esc(c.title) + '</a>' : esc(c.title)) + '</h3><p class="muted">' + esc(c.issuer) + '</p>' +
+          (c.description ? '<p class="small">' + esc(c.description) + '</p>' : '') +
+          (c.image ? '<p class="small"><a href="' + esc(c.image) + '">' + icon('file-badge') + ' View certificate</a></p>' : '') +
+          '</div></article>';
       }).join('');
       if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
     }).catch(function (e) { Site.fail($('#awards-root'), e); });
@@ -512,9 +515,13 @@
           '</article></li>';
       }).join('');
       $('#experience-root').innerHTML = cv.experience.map(function (x) {
-        return '<li><article class="card"><div class="vt-head"><h3>' + esc(x.role) + '</h3><span class="vt-dates">' + esc(x.start) + ' – ' + esc(x.end) + '</span></div>' +
-          '<p class="vt-org">' + esc(x.org) + ' · ' + esc(x.location) + '</p>' +
-          '<ul class="bullets">' + x.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul></article></li>';
+        return '<li><article class="card"><div class="vt-head"><h3>' + esc(x.role) + '</h3><span class="vt-dates">' + esc([x.start, x.end].filter(Boolean).join(' – ')) + '</span></div>' +
+          '<p class="vt-org">' + esc([x.org, x.location].filter(Boolean).join(' · ')) + '</p>' +
+          '<ul class="bullets">' + x.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' +
+          (x.links && x.links.length ? '<div class="tl-links">' + x.links.map(function (l) {
+            return '<a href="' + esc(l.url) + '"' + (/^https?:/.test(l.url) ? ' rel="noopener"' : '') + '>' + icon(l.icon || 'external-link') + esc(l.label) + '</a>';
+          }).join('') + '</div>' : '') +
+          '</article></li>';
       }).join('');
     }).catch(function (e) { Site.fail($('#education-root'), e); });
   }

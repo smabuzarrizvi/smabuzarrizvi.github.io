@@ -1,16 +1,52 @@
 {
   "awards": [
-    { "year": 2025, "title": "Best Paper Award", "event": "Korea Information and Communications Society (KICS) Conference", "paper": "gholamalishahiharouni2025purcell" },
-    { "year": 2023, "title": "Best Paper Award", "event": "International Conference on Industrial Networks and Intelligent Systems (INISCOM)", "paper": "rizvi2023nnvqc" },
-    { "year": 2022, "title": "Best Paper Award", "event": "Korea Information and Communications Society (KICS) Conference", "paper": "rizvi2022qubitstate" }
+    {
+      "year": 2025,
+      "title": "Best Paper Award",
+      "event": "Korea Information and Communications Society (KICS) Conference",
+      "paper": "gholamalishahiharouni2025purcell"
+    },
+    {
+      "year": 2023,
+      "title": "Best Paper Award",
+      "event": "International Conference on Industrial Networks and Intelligent Systems (INISCOM)",
+      "paper": "rizvi2023nnvqc"
+    },
+    {
+      "year": 2022,
+      "title": "Best Paper Award",
+      "event": "Korea Information and Communications Society (KICS) Conference",
+      "paper": "rizvi2022qubitstate"
+    }
   ],
   "certifications": [
-    { "date": "July 2021", "title": "Qiskit Global Summer School on Quantum Machine Learning", "issuer": "IBM Quantum", "link": "https://challenges.quantum.ibm.com/qgss21" }
+    {
+      "date": "2025",
+      "title": "2025 IonQ Summer Research Mentoring Program — Certificate of Participation",
+      "issuer": "Quantum Information Research Support Center (QCenter)",
+      "description": "Awarded to the SeeQI Research Group for research on explainability in quantum machine learning.",
+      "image": "assets/images/certificates/ionq-summer-research-2025.jpg"
+    },
+    {
+      "date": "July 2021",
+      "title": "Qiskit Global Summer School on Quantum Machine Learning",
+      "issuer": "IBM Quantum",
+      "link": "https://challenges.quantum.ibm.com/qgss21"
+    }
   ],
   "leadership": [
-    { "title": "Principal Investigator on two Brain Korea 21 (BK21) projects", "description": "Hybrid quantum–classical computation for optimization and machine learning (2021–2022); variational quantum computing for optimization (2023–2024)." },
-    { "title": "Research leadership and mentoring", "description": "Five years of experience crafting research proposals, managing projects, and mentoring researchers; coordinating lab research activities and supporting new student admissions and onboarding at CQILAB." },
-    { "title": "Funded research programs", "description": "Team member on nine national and university research programs funded by NRF, IITP, and Kyung Hee University, contributing proposal writing, project planning, technical documentation, and progress reports." }
+    {
+      "title": "Principal Investigator on two Brain Korea 21 (BK21) projects",
+      "description": "Hybrid quantum–classical computation for optimization and machine learning (2021–2022); variational quantum computing for optimization (2023–2024)."
+    },
+    {
+      "title": "Research leadership and mentoring",
+      "description": "Five years of experience crafting research proposals, managing projects, and mentoring researchers; coordinating lab research activities and supporting new student admissions and onboarding at CQILAB."
+    },
+    {
+      "title": "Funded research programs",
+      "description": "Team member on nine national and university research programs funded by NRF, IITP, and Kyung Hee University, contributing proposal writing, project planning, technical documentation, and progress reports."
+    }
   ],
   "patents": [
     {

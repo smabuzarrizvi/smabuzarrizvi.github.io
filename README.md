@@ -197,7 +197,8 @@ Edit [`data/timeline.json`](data/timeline.json). Events are shown **in file orde
   "institution": "Optional institution",
   "description": "Optional short description.",
   "papers": ["rizvi2026example"],
-  "link": "https://optional-external-link"
+  "link": "https://optional-external-link",
+  "linkLabel": "Optional button text (default: Details)"
 }
 ```
 
@@ -210,8 +211,8 @@ Edit [`data/timeline.json`](data/timeline.json). Events are shown **in file orde
 | File | What it holds |
 |---|---|
 | `data/research.json` | Research-theme cards (`summary`, `keywords`, `icon`, optional `image` for a figure) and skill groups. |
-| `data/achievements.json` | `awards` (a `paper` id links to the publication), `patents` (optional `filed` date and `description`), `leadership`, `certifications`. |
-| `data/cv.json` | `education` (optional `advisor`, `thesis`, `expectedGraduation`) and `experience` (add teaching or internships as more entries). |
+| `data/achievements.json` | `awards` (a `paper` id links to the publication), `patents` (optional `filed` date and `description`), `leadership`, `certifications` (optional `description` and `image` of the certificate). |
+| `data/cv.json` | `education` (optional `advisor`, `thesis`, `expectedGraduation`) and `experience` (add teaching or internships as more entries; optional `links`: `[{"label", "url"}]`). |
 | `data/conferences.json` | Conferences (add `city`, `country`, `lat`, `lon` to put a pin on the map) and `places` of study and work. |
 
 Available icon names are the `id="i-…"` values in `assets/icons/sprite.svg`, for example `atom`, `cpu`, `network`, `brain-circuit`, `shield-check`, `flask-conical`.
