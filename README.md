@@ -3,7 +3,7 @@
 A static academic website for GitHub Pages. It uses plain HTML, CSS and JavaScript. There is no build step, no framework and no server.
 Every list on the site (publications, projects, timeline, awards, patents, education, skills) is rendered from JSON files in [`data/`](data/). To update the site, you edit a JSON file and push.
 
-Live URL (after you enable Pages): **https://smabuzarrizvi.github.io/website/**
+Live URL: **https://smabuzarrizvi.github.io/**. It is served from the repository [`smabuzarrizvi/smabuzarrizvi.github.io`](https://github.com/smabuzarrizvi/smabuzarrizvi.github.io).
 
 All content comes from the CV (`main.pdf`, Sept. 2026). Nothing was invented. Fields the CV does not provide, such as DOIs, advisor, thesis title, conference locations and citation metrics, are left empty, and the site hides them automatically until you fill them in.
 
@@ -77,8 +77,8 @@ All content comes from the CV (`main.pdf`, Sept. 2026). Nothing was invented. Fi
 The pages load JSON with `fetch()`, so they need to be served over HTTP. Opening `index.html` directly from disk (`file://`) will not work.
 
 ```bash
-git clone https://github.com/smabuzarrizvi/website.git
-cd website
+git clone https://github.com/smabuzarrizvi/smabuzarrizvi.github.io.git
+cd smabuzarrizvi.github.io
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
@@ -89,16 +89,15 @@ Any static server works, for example `npx serve .`. On `localhost` the home page
 
 ## Deploy on GitHub Pages
 
-1. Merge this branch into `main`, or push it to `main`.
-2. On GitHub, open **Settings → Pages**.
-3. Under **Build and deployment**, set **Source: Deploy from a branch**, **Branch: `main`**, **Folder: `/ (root)`**, then **Save**.
-4. After about a minute the site is live at `https://smabuzarrizvi.github.io/website/`.
+The site is a GitHub Pages **user site**. A repository named exactly `smabuzarrizvi.github.io` is published at `https://smabuzarrizvi.github.io/`.
 
-**Optional: serve from the root URL.** Rename the repository to `smabuzarrizvi.github.io` (Settings → General → Repository name). The site then lives at `https://smabuzarrizvi.github.io/`. After renaming, replace the base URL everywhere:
+- **Publishing an update:** push to the `main` branch of `smabuzarrizvi/smabuzarrizvi.github.io`. GitHub rebuilds the site within about a minute. The build shows under the repository's **Actions** tab as "pages build and deployment".
+- **Pages settings:** **Settings → Pages** should show **Source: Deploy from a branch**, **Branch: `main`**, **Folder: `/ (root)`**. If Pages ever reports no source, set it there and save.
+- **Moving to another repository or a subpath:** replace the base URL in the HTML, `sitemap.xml` and `robots.txt`:
 
 ```bash
-grep -rl "smabuzarrizvi.github.io/website/" --include="*.html" --include="*.xml" --include="*.txt" . \
-  | xargs sed -i 's#smabuzarrizvi.github.io/website/#smabuzarrizvi.github.io/#g'
+grep -rl "https://smabuzarrizvi.github.io/" --include="*.html" --include="*.xml" --include="*.txt" . \
+  | xargs sed -i 's#https://smabuzarrizvi.github.io/#https://NEW-BASE-URL/#g'
 ```
 
 (On macOS use `sed -i ''`.)
@@ -294,8 +293,8 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 3. In GitHub **Settings → Pages → Custom domain**, enter the domain and save. This creates a `CNAME` file in the repository. Once the certificate is issued, tick **Enforce HTTPS**.
 4. Replace the base URL in the HTML, `sitemap.xml` and `robots.txt`:
    ```bash
-   grep -rl "smabuzarrizvi.github.io/website/" --include="*.html" --include="*.xml" --include="*.txt" . \
-     | xargs sed -i 's#https://smabuzarrizvi.github.io/website/#https://abuzarrizvi.com/#g'
+   grep -rl "smabuzarrizvi.github.io/" --include="*.html" --include="*.xml" --include="*.txt" . \
+     | xargs sed -i 's#https://smabuzarrizvi.github.io/#https://abuzarrizvi.com/#g'
    ```
 5. Regenerate `assets/images/og-image.png` if you want the new URL printed on it (optional).
 
@@ -306,8 +305,7 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 - Every page has a title, meta description, canonical URL, Open Graph and Twitter/X card tags, and a 1200×630 share image.
 - `index.html` contains Schema.org **Person** JSON-LD. `publications.html` adds **ScholarlyArticle** JSON-LD for every paper, generated from `publications.json`.
 - `sitemap.xml` lists all pages. After deploying, submit it in [Google Search Console](https://search.google.com/search-console).
-  - While the site lives under `/website/`, crawlers ignore `robots.txt`, because it only counts at the domain root. Submitting the sitemap in Search Console fixes this.
-  - With a root URL or custom domain, `robots.txt` works as intended.
+  - The site is served at the domain root, so `robots.txt` (which points crawlers to the sitemap) works as intended.
 - Update `<lastmod>` in `sitemap.xml` when you make large content changes.
 - For the strongest Google Scholar profile linkage, add DOIs and a Scholar `sameAs` link. The Scholar `sameAs` link is already in `index.html`.
 
