@@ -25,10 +25,10 @@
   ],
   "metrics": {
     "_comment": "Optional. Copy these from your Google Scholar profile and update 'asOf'. Leave a value as null to hide its card.",
-    "citations": 81,
+    "citations": 87,
     "hIndex": 5,
     "i10Index": 3,
-    "asOf": "Sep 2026"
+    "asOf": "Oct 2026"
   },
   "analytics": {
     "_comment": "See README > Visitor analytics. Leave goatcounter empty to disable tracking entirely.",

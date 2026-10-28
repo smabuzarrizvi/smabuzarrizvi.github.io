@@ -9,6 +9,22 @@
   },
   "publications": [
     {
+      "id": "rehman2026qrac",
+      "type": "journal",
+      "title": "Quantum random access codes for image transmission",
+      "authors": "J.U. Rehman, N. Iqbal, S.M.A. Rizvi, H. Shin",
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "themes": [
+        "qcomm"
+      ],
+      "topics": [
+        "Quantum Communication",
+        "Quantum Random Access Codes",
+        "Image Transmission"
+      ]
+    },
+    {
       "id": "khan2026fullduplex",
       "type": "journal",
       "title": "Quantum Full-Duplex Anonymous Communication in Adversarial Quantum Networks",
@@ -23,7 +39,8 @@
         "Quantum Communication",
         "Anonymous Communication",
         "Quantum Networks"
-      ]
+      ],
+      "citations": 1
     },
     {
       "id": "paracha2026quantumfusion",
@@ -81,7 +98,7 @@
         "Quantum Optimization",
         "Intelligent Transportation"
       ],
-      "citations": 4
+      "citations": 5
     },
     {
       "id": "rizvi2025qmlvision",
@@ -102,7 +119,7 @@
         "Hybrid Quantum-Classical",
         "Computer Vision"
       ],
-      "citations": 26
+      "citations": 27
     },
     {
       "id": "rizvi2025semantic",
@@ -122,7 +139,7 @@
         "Semantic Communication",
         "Industrial CPS"
       ],
-      "citations": 16
+      "citations": 19
     },
     {
       "id": "rehman2025mimo",

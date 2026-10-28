@@ -11,12 +11,13 @@
     {
       "date": "2026",
       "category": "publication",
-      "title": "Three journal papers in ACM Computing Surveys and IEEE TNSE",
-      "description": "A survey of quantum machine learning for drug discovery (ACM Computing Surveys), and two papers in IEEE Transactions on Network Science and Engineering: quantum full-duplex anonymous communication in adversarial quantum networks, and quantum fusion learning for 6G networks with Kolmogorov-Arnold networks.",
+      "title": "Four journal papers in ACM Computing Surveys, IEEE TNSE and Scientific Reports",
+      "description": "A survey of quantum machine learning for drug discovery (ACM Computing Surveys); two papers in IEEE Transactions on Network Science and Engineering on quantum full-duplex anonymous communication and on quantum fusion learning for 6G networks with Kolmogorov-Arnold networks; and quantum random access codes for image transmission (Scientific Reports).",
       "papers": [
         "duong2026qmldrug",
         "khan2026fullduplex",
-        "paracha2026quantumfusion"
+        "paracha2026quantumfusion",
+        "rehman2026qrac"
       ]
     },
     {

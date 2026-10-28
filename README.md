@@ -332,7 +332,7 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 
 - [x] **Profile photo.** Added. A higher-resolution original (480×480 or larger) would look sharper on high-resolution screens.
 - [ ] **ORCID, ResearchGate and lab/university profile URLs** (`data/profile.json → links`). These are not in the CV.
-- [x] **Google Scholar metrics and per-paper citation counts.** Added from your Scholar profile (Sep 2026). Update `metrics` in `profile.json` and the `citations` fields in `publications.json` when you want them refreshed.
+- [x] **Google Scholar metrics and per-paper citation counts.** Added from your Scholar profile (Oct 2026). Update `metrics` in `profile.json` and the `citations` fields in `publications.json` when you want them refreshed.
 - [ ] **DOIs and publisher links** for each paper. These enable the DOI and Publisher buttons and richer BibTeX. PDFs of accepted manuscripts are optional, where the publishers allow them.
 - [ ] **Publication status** where relevant. Examples: whether the 2025/2026 IEEE TNSE papers are in early access; whether you want per-paper `status` badges.
 - [ ] **Ph.D. advisor, dissertation title and expected graduation date** (`data/cv.json`). They are hidden until filled in.
