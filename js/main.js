@@ -356,7 +356,7 @@
       // places + conferences map
       const pts = conf.places.map(function (p) { return { lon: p.lon, lat: p.lat, r: 6, label: p.city, title: p.label + ' — ' + p.city + ', ' + p.country }; });
       conf.conferences.forEach(function (c) {
-        if (c.lat != null && c.lon != null) pts.push({ lon: c.lon, lat: c.lat, r: 4, title: c.short + ' ' + c.year + (c.city ? ' — ' + c.city : '') });
+        if (c.lat != null && c.lon != null) pts.push({ lon: c.lon, lat: c.lat, r: 4, title: c.short + ' ' + (c.date || c.year) + (c.city ? ' — ' + c.city : '') });
       });
       // chronological order (earliest place first) for the connecting arc
       Site.drawMap($('#places-map'), pts.slice(0, conf.places.length).reverse().concat(pts.slice(conf.places.length)), { arcs: true });
@@ -368,7 +368,7 @@
         const ps = (c.papers || []).map(function (id) { return byId[id]; }).filter(Boolean);
         const award = ps.filter(function (p) { return p.award; });
         const loc = [c.city, c.country].filter(Boolean).join(', ');
-        return '<li class="card conf-item"><div class="conf-top"><span class="short">' + esc(c.short) + '</span><span class="yr">' + esc(c.year) + '</span></div>' +
+        return '<li class="card conf-item"><div class="conf-top"><span class="short">' + esc(c.short) + '</span><span class="yr">' + esc(c.date || c.year) + '</span></div>' +
           '<p class="full">' + (c.edition ? esc(c.edition) + ' ' : '') + esc(c.name) + '</p>' +
           '<ul>' + ps.map(function (p) { return '<li><a href="publications.html#' + esc(p.id) + '">' + esc(p.title) + '</a></li>'; }).join('') + '</ul>' +
           (award.length ? '<p style="margin:8px 0 0"><span class="badge badge-award">' + icon('trophy') + 'Best Paper Award</span></p>' : '') +
@@ -474,6 +474,10 @@
         return '<article class="card award-card"><span class="award-icon">' + icon('trophy') + '</span><div>' +
           '<span class="year">' + esc(w.year) + '</span><h3>' + esc(w.title) + '</h3><p class="muted">' + esc(w.event) + '</p>' +
           (p ? '<p>For <a href="publications.html#' + esc(p.id) + '">“' + esc(p.title) + '”</a></p>' : '') + '</div></article>';
+      }).join('');
+      $('#fellowships-root').innerHTML = (a.honors || []).map(function (h) {
+        return '<article class="card award-card"><span class="award-icon">' + icon(h.kind === 'Award' ? 'award' : 'graduation-cap') + '</span><div>' +
+          (h.period ? '<span class="year">' + esc(h.period) + '</span>' : '') + '<h3>' + esc(h.title) + '</h3><p class="muted">' + esc(h.issuer) + '</p></div></article>';
       }).join('');
       $('#patents-root').innerHTML = a.patents.map(function (p) {
         return '<article class="card patent-card">' +

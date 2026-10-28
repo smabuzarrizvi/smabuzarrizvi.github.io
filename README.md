@@ -211,17 +211,26 @@ Edit [`data/timeline.json`](data/timeline.json). Events are shown **in file orde
 | File | What it holds |
 |---|---|
 | `data/research.json` | Research-theme cards (`summary`, `keywords`, `icon`, optional `image` for a figure) and skill groups. |
-| `data/achievements.json` | `awards` (a `paper` id links to the publication), `patents` (optional `filed` date and `description`), `leadership`, `certifications` (optional `description` and `image` of the certificate). |
+| `data/achievements.json` | `awards` (a `paper` id links to the publication), `honors` (fellowships and scholarships), `patents` (optional `filed` date and `description`), `leadership`, `certifications` (optional `description` and `image` of the certificate). |
 | `data/cv.json` | `education` (optional `advisor`, `thesis`, `expectedGraduation`) and `experience` (add teaching or internships as more entries; optional `links`: `[{"label", "url"}]`). |
-| `data/conferences.json` | Conferences (add `city`, `country`, `lat`, `lon` to put a pin on the map) and `places` of study and work. |
+| `data/conferences.json` | Conferences (`date`, `city`, `country`, `lat`, `lon`; entries with coordinates get a pin on the map) and `places` of study and work. |
 
 Available icon names are the `id="i-…"` values in `assets/icons/sprite.svg`, for example `atom`, `cpu`, `network`, `brain-circuit`, `shield-check`, `flask-conical`.
 
 ### Updating the CV
 
-Replace `assets/files/CV.pdf` with the new file, keeping the same name, and push. The **Download CV** buttons and the viewer on `cv.html` pick it up automatically.
+Replace `assets/files/CV.pdf` with the new file, keeping the same name, and push. The **Download CV** buttons and the viewer on `cv.html` pick it up automatically. (Browsers can cache PDFs for a few minutes after an update.)
 
-The current `CV.pdf` is a **public version** of the CV you supplied. The phone number, home address and referees' names and emails were removed, and references now read "Available upon request." Do the same for future versions. Referees' contact details should not be on a public site without their consent.
+The published `CV.pdf` is a **public version**: no phone number, home address or referees' contact details, and references read "Available upon request." Keep future versions the same way. Referees' details should not be on a public site without their consent.
+
+If you keep your CV as LaTeX, a single `main.tex` can produce both versions. Wrap the private lines in `\ifdefined\publiccv ... \else ... \fi` and compile the public one with:
+
+```bash
+pdflatex -jobname=public "\def\publiccv{1}\input{main.tex}"   # public: upload as assets/files/CV.pdf
+pdflatex main.tex                                              # full: for your own use
+```
+
+Do not commit the full `main.tex` to this repository: it contains your phone number, address and referees.
 
 ### Profile photo
 
@@ -336,7 +345,7 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 - [ ] **DOIs and publisher links** for each paper. These enable the DOI and Publisher buttons and richer BibTeX. PDFs of accepted manuscripts are optional, where the publishers allow them.
 - [ ] **Publication status** where relevant. Examples: whether the 2025/2026 IEEE TNSE papers are in early access; whether you want per-paper `status` badges.
 - [ ] **Ph.D. advisor, dissertation title and expected graduation date** (`data/cv.json`). They are hidden until filled in.
-- [ ] **Conference locations** (city, country, coordinates) in `data/conferences.json` to pin them on the map, plus anything else you want in "Conferences & places": talks, research visits, invited events.
+- [ ] **ICOIN 2026 location** (and any talks, research visits or invited events) in `data/conferences.json`. The other conference cities and months came from your CV source file.
 - [ ] **Patent filing dates and one-line technical descriptions** (`data/achievements.json`). The CV gives numbers and status only.
 - [ ] **Project details** (`description`, `problem`, `tools`, `papers`, `repo`) in `data/projects.json`, if you want richer project cards. Please also check the project title *"Development of 6H Next-Generation Mobile Communications Technology"*. It is copied exactly as written in the CV; if "6H" is a typo for "6G", correct it in both `projects.json` and your CV.
 - [ ] **Teaching experience, scholarships and fellowships**, if any. None are listed in the CV, so those sections were not created.

@@ -81,5 +81,31 @@
       "status": "Submitted",
       "inventors": "H. Shin, H.J. Jung, M.S. Choi, F. Zaman, S.M.A. Rizvi, S.A. Wachid, F. Dzulfikar"
     }
+  ],
+  "honors": [
+    {
+      "title": "KHU Khreative U+ Fellowship",
+      "period": "2021 and 2023",
+      "issuer": "Kyung Hee University",
+      "kind": "Fellowship"
+    },
+    {
+      "title": "Doctoral Research Fellowship, Brain Korea 21 (BK21)",
+      "period": "2021 – Present",
+      "issuer": "Brain Korea 21, South Korea",
+      "kind": "Fellowship"
+    },
+    {
+      "title": "Graduate Student Scholarship",
+      "period": "2021 – Present",
+      "issuer": "Kyung Hee University",
+      "kind": "Scholarship"
+    },
+    {
+      "title": "High GPA Achievement Award",
+      "period": "",
+      "issuer": "National University of Sciences and Technology (NUST)",
+      "kind": "Award"
+    }
   ]
 }
