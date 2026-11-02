@@ -2,10 +2,10 @@
   "_comment": "citations: copied manually from Google Scholar (see profile.json metrics.asOf).",
   "themes": {
     "qcomm": "Quantum Communication & Networks",
+    "qctrl": "Quantum Control & Hardware",
     "qml": "Quantum Machine Learning",
     "vqa": "Variational Algorithms & Quantum Optimization",
-    "qem": "Error Mitigation & NISQ Computing",
-    "qctrl": "Quantum Control & Hardware"
+    "qem": "Error Mitigation & NISQ Computing"
   },
   "publications": [
     {
@@ -22,7 +22,8 @@
         "Quantum Communication",
         "Quantum Random Access Codes",
         "Image Transmission"
-      ]
+      ],
+      "summary": "Uses quantum random access codes, which pack several classical bits into fewer qubits, to transmit images."
     },
     {
       "id": "khan2026fullduplex",
@@ -40,7 +41,9 @@
         "Anonymous Communication",
         "Quantum Networks"
       ],
-      "citations": 1
+      "citations": 1,
+      "summary": "Anonymous full-duplex communication that holds up against adversaries in quantum networks.",
+      "selected": true
     },
     {
       "id": "paracha2026quantumfusion",
@@ -56,7 +59,8 @@
         "Quantum Machine Learning",
         "Kolmogorov-Arnold Networks",
         "6G Networks"
-      ]
+      ],
+      "summary": "Quantum fusion learning for 6G networks, built on Kolmogorov-Arnold networks."
     },
     {
       "id": "duong2026qmldrug",
@@ -77,7 +81,8 @@
         "Survey",
         "Drug Discovery"
       ],
-      "citations": 4
+      "citations": 4,
+      "summary": "A taxonomy of quantum machine learning for drug discovery, with open challenges and a road ahead."
     },
     {
       "id": "khalid2025vqetraffic",
@@ -98,7 +103,8 @@
         "Quantum Optimization",
         "Intelligent Transportation"
       ],
-      "citations": 5
+      "citations": 5,
+      "summary": "VQE-based traffic routing and EV charging scheduling for intelligent transportation systems."
     },
     {
       "id": "rizvi2025qmlvision",
@@ -119,7 +125,9 @@
         "Hybrid Quantum-Classical",
         "Computer Vision"
       ],
-      "citations": 27
+      "citations": 27,
+      "summary": "Hybrid quantum–classical models for vision tasks.",
+      "selected": true
     },
     {
       "id": "rizvi2025semantic",
@@ -139,7 +147,9 @@
         "Semantic Communication",
         "Industrial CPS"
       ],
-      "citations": 19
+      "citations": 19,
+      "summary": "Brings semantic, task-level communication to quantum links in industrial cyber-physical networks.",
+      "selected": true
     },
     {
       "id": "rehman2025mimo",
@@ -160,7 +170,8 @@
         "Quantum MIMO",
         "Pure-Loss Channels"
       ],
-      "citations": 6
+      "citations": 6,
+      "summary": "Multi-mode (MIMO) quantum communication when pure-loss channels are correlated across modes."
     },
     {
       "id": "rizvi2022tripartite",
@@ -181,7 +192,8 @@
         "Quantum Metrology",
         "Deep Learning"
       ],
-      "citations": 7
+      "citations": 7,
+      "summary": "Deep neural networks that classify metrologically resourceful tripartite quantum states into multiple classes."
     },
     {
       "id": "rizvi2026pulse",
@@ -200,7 +212,9 @@
         "Quantum Control",
         "Reinforcement Learning",
         "Single-Photon Sources"
-      ]
+      ],
+      "summary": "Deep reinforcement learning to shape pulses for single-photon quantum emitters.",
+      "selected": true
     },
     {
       "id": "gholamalishahiharouni2025purcell",
@@ -219,7 +233,8 @@
         "Superconducting Circuits",
         "Purcell Filter",
         "Quantum Hardware"
-      ]
+      ],
+      "summary": "Analytical design of an LC double-notch Purcell filter for superconducting quantum circuits."
     },
     {
       "id": "gondel2025nisqstateprep",
@@ -238,7 +253,8 @@
         "State Preparation",
         "Reinforcement Learning",
         "NISQ"
-      ]
+      ],
+      "summary": "Reinforcement learning for state preparation on NISQ devices."
     },
     {
       "id": "paracha2024readout",
@@ -257,7 +273,9 @@
         "Readout Errors",
         "Transfer Learning"
       ],
-      "citations": 4
+      "citations": 4,
+      "summary": "Adaptive readout error mitigation that uses transfer learning.",
+      "selected": true
     },
     {
       "id": "rizvi2024vqequbo",
@@ -276,7 +294,9 @@
         "QUBO",
         "Network Scheduling"
       ],
-      "citations": 2
+      "citations": 2,
+      "summary": "Casts network scheduling as a QUBO problem and solves it with the variational quantum eigensolver.",
+      "selected": true
     },
     {
       "id": "rizvi2023nnvqc",
@@ -297,7 +317,8 @@
         "Variational Quantum Circuits",
         "Hybrid Quantum-Classical"
       ],
-      "citations": 12
+      "citations": 12,
+      "summary": "Neural networks whose layers are variational quantum circuits."
     },
     {
       "id": "rizvi2022optimalcontrol",
@@ -314,7 +335,8 @@
       "topics": [
         "Quantum Optimal Control",
         "Pulse-Level Control"
-      ]
+      ],
+      "summary": "Quantum optimal control with pulses."
     },
     {
       "id": "rizvi2022measurement",
@@ -332,7 +354,8 @@
         "Error Mitigation",
         "Measurement Errors",
         "NISQ"
-      ]
+      ],
+      "summary": "Measurement error mitigation for NISQ devices."
     },
     {
       "id": "zaman2022qarl",
@@ -349,7 +372,8 @@
       "topics": [
         "Quantum Reinforcement Learning",
         "Quantum Machine Learning"
-      ]
+      ],
+      "summary": "Quantum-assisted reinforcement learning."
     },
     {
       "id": "rizvi2022qubitstate",
@@ -369,7 +393,8 @@
         "Qubit State Estimation",
         "Machine Learning",
         "IBM Quantum"
-      ]
+      ],
+      "summary": "Machine learning to estimate qubit states on an IBM quantum computer."
     }
   ]
 }

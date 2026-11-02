@@ -121,6 +121,7 @@
       '<span class="pub-num" aria-hidden="true">[' + esc(num) + ']</span><div>' +
       '<h3 class="pub-title">' + esc(p.title) + '</h3>' +
       '<p class="pub-authors">' + Site.highlightAuthors(p.authors, profile.highlightNames) + '</p>' +
+      (p.summary ? '<p class="pub-summary">' + esc(p.summary) + '</p>' : '') +
       '<p class="pub-venue">' + (p.type === 'conference' ? 'In ' : '') + '<em>' + esc(p.venue) + '</em>, ' + details.join(', ') + '</p>' +
       (meta.length ? '<div class="pub-meta">' + meta.join('') + '</div>' : '') +
       '<div class="pub-actions">' + actions.join('') + '</div>' +

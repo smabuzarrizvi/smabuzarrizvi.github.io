@@ -1,7 +1,7 @@
 # Academic website — Syed Muhammad Abuzar Rizvi
 
 A static academic website for GitHub Pages. It uses plain HTML, CSS and JavaScript. There is no build step, no framework and no server.
-Every list on the site (publications, projects, timeline, awards, patents, education, skills) is rendered from JSON files in [`data/`](data/). To update the site, you edit a JSON file and push.
+Every list on the site (publications, projects, awards, patents, education, skills) is rendered from JSON files in [`data/`](data/). To update the site, you edit a JSON file and push.
 
 Live URL: **https://smabuzarrizvi.github.io/**. It is served from the repository [`smabuzarrizvi/smabuzarrizvi.github.io`](https://github.com/smabuzarrizvi/smabuzarrizvi.github.io).
 
@@ -15,7 +15,7 @@ All content comes from the CV (`main.pdf`, Sept. 2026) and the Google Scholar pr
 2. [Run locally](#run-locally)
 3. [Deploy on GitHub Pages](#deploy-on-github-pages)
 4. [Updating content](#updating-content)
-   - [Publications](#publications) · [Projects](#projects) · [Timeline](#timeline-academic-journey) · [Other data](#other-data-files)
+   - [Publications](#publications) · [Research themes](#research-themes-home-and-research-pages) · [Projects](#projects) · [Other data](#other-data-files)
    - [CV](#updating-the-cv) · [Photo](#profile-photo) · [Profile links & metrics](#profile-links-and-google-scholar-metrics)
 5. [Visitor analytics](#visitor-analytics)
 6. [GitHub activity widget](#github-activity-widget)
@@ -30,13 +30,12 @@ All content comes from the CV (`main.pdf`, Sept. 2026) and the Google Scholar pr
 
 ```
 /
-├── index.html              Home: bio, stats, research areas, latest papers, milestones, GitHub, visitors
-├── journey.html            Academic timeline (filterable) + conferences & places map
-├── research.html           Research themes (auto-linked to papers/projects) + methods & tools
+├── index.html              Home: research summary, stats, the five research areas, selected papers, collaboration interests, GitHub, visitors
+├── research.html           Per theme: problem, approach, all related papers and projects; plus methods & tools
 ├── publications.html       Search / filter / sort, BibTeX, copy citation, DOI links
 ├── projects.html           Funded projects, filterable by area
-├── achievements.html       Awards, patents, leadership, certifications
-├── education.html          Education + experience
+├── achievements.html       Awards and fellowship, patents, certifications
+├── education.html          Degrees (with optional university logos) and scholarships
 ├── cv.html                 Embedded CV viewer + download
 ├── contact.html            Affiliation, email, profiles
 ├── 404.html
@@ -50,11 +49,9 @@ All content comes from the CV (`main.pdf`, Sept. 2026) and the Google Scholar pr
 │   ├── profile.json        Name, position, links, optional Scholar metrics, analytics/GitHub settings
 │   ├── publications.json   Publications + research-theme names
 │   ├── projects.json       Funded projects
-│   ├── timeline.json       Academic-journey events
-│   ├── research.json       Research themes + skills
-│   ├── achievements.json   Awards, patents, leadership, certifications
-│   ├── cv.json             Education + experience
-│   ├── conferences.json    Conferences and places (map)
+│   ├── research.json       Research themes (problem, approach, relevance), collaboration interests, skills
+│   ├── achievements.json   Awards and fellowship, patents, certifications
+│   ├── cv.json             Education (degrees, scholarships, logo path)
 │   ├── visitors.json       Aggregate visitor stats (written by the GitHub Action, do not edit by hand)
 │   └── country-centroids.json  ISO country code → map coordinates (static)
 ├── assets/
@@ -143,7 +140,7 @@ Add an object to the `publications` array in [`data/publications.json`](data/pub
 | `id` | yes | Unique. Used as the BibTeX key and the anchor (`publications.html#id`). |
 | `type` | yes | `journal`, `conference`, `chapter`, `preprint` or `thesis`. The type filter chips appear automatically. |
 | `title`, `authors`, `venue`, `year` | yes | Separate authors with commas. Your name is bolded wherever it matches `highlightNames` in `profile.json`. |
-| `shortVenue` | no | Short label such as `ICOIN 2026`, used on the timeline. |
+| `shortVenue` | no | Short label such as `ICOIN 2026`. |
 | `volume`, `issue`, `pages` | no | Shown when present. |
 | `doi` | no | Adds a **DOI** button and is included in BibTeX. |
 | `url` / `pdf` / `code` | no | **Publisher**, **PDF** and **Code** buttons. |
@@ -151,6 +148,8 @@ Add an object to the `publications` array in [`data/publications.json`](data/pub
 | `status` | no | `Published`, `Accepted`, `Under Review`, etc. Shown as a badge. |
 | `citations` | no | Citation count you copy by hand from Scholar. Shown as "Cited by N". |
 | `award`, `impactFactor` | no | Badges. |
+| `summary` | no | One plain sentence shown under the title on the publications page and on the home page. |
+| `selected` | no | `true` puts the paper in "Selected publications" on the home page (six fit well). |
 | `themes` | no | Keys from the `themes` map at the top of the file. These drive the research-area filter and the Research page. |
 | `topics` | no | Free-text tags. They are searchable. |
 | `bibtex` | no | Full BibTeX string. Overrides the automatically generated entry. |
@@ -158,6 +157,10 @@ Add an object to the `publications` array in [`data/publications.json`](data/pub
 To add a new research area, add a key to `themes` in `publications.json` **and** a matching entry (same `id`) in `data/research.json`.
 
 **Why the site doesn't pull from Google Scholar:** Scholar has no public API, and fetching it from the browser is unreliable and against its terms of service. Update citation counts and metrics by hand when you want them refreshed (see [metrics](#profile-links-and-google-scholar-metrics)). For automation later, a scheduled GitHub Action can query a legitimate metadata API, such as [OpenAlex](https://docs.openalex.org/) (free, no key) or [Crossref](https://api.crossref.org/), by DOI. It can then write `citations` into `publications.json`, using the same pattern as `scripts/update_visitors.py`. Such an action will need DOIs in the data first.
+
+### Research themes (home and research pages)
+
+Edit [`data/research.json`](data/research.json). Each theme has a `tagline` and `relevant` tags (shown on the home page), and a longer `problem`, `approach` and `keywords` (shown on `research.html`, with all papers and projects whose `themes` include the theme `id`). The `collaboration` block on the home page lists the industry teams and academic groups this work is relevant to. Keep wording factual: describe what the papers do, not results you cannot cite.
 
 ### Projects
 
@@ -185,35 +188,13 @@ Edit [`data/projects.json`](data/projects.json):
 - `themes` links a project to a card on the Research page.
 - Optional fields are hidden when empty.
 
-### Timeline (academic journey)
-
-Edit [`data/timeline.json`](data/timeline.json). Events are shown **in file order** (newest first) and grouped by year.
-
-```json
-{
-  "date": "2026-11",
-  "category": "award",
-  "title": "Best Paper Award, Example Conference 2026",
-  "institution": "Optional institution",
-  "description": "Optional short description.",
-  "papers": ["rizvi2026example"],
-  "link": "https://optional-external-link",
-  "linkLabel": "Optional button text (default: Details)"
-}
-```
-
-- `date` can be `YYYY`, `YYYY-MM` or `present`.
-- `category` is one of `education`, `position`, `research`, `publication`, `conference`, `award`, `patent` or `certification`. Each category has its own colour, icon and filter chip.
-- The home page's "Recent milestones" shows the first three dated events.
-
 ### Other data files
 
 | File | What it holds |
 |---|---|
-| `data/research.json` | Research-theme cards (`summary`, `keywords`, `icon`, optional `image` for a figure) and skill groups. |
-| `data/achievements.json` | `awards` (a `paper` id links to the publication), `honors` (fellowships and scholarships), `patents` (optional `filed` date and `description`), `leadership`, `certifications` (optional `description` and `image` of the certificate). |
-| `data/cv.json` | `education` (optional `advisor`, `thesis`, `expectedGraduation`) and `experience` (add teaching or internships as more entries; optional `links`: `[{"label", "url"}]`). |
-| `data/conferences.json` | Conferences (`date`, `city`, `country`, `lat`, `lon`; entries with coordinates get a pin on the map) and `places` of study and work. |
+| `data/research.json` | Research themes: `tagline` and `relevant` (home page), `problem`, `approach` and `keywords` (research page); `collaboration` (home page); skill groups. Add a theme `id` here and in `publications.json`. |
+| `data/achievements.json` | `awards` (a `paper` id links to the publication), `patents` (optional `filed` date and `description`), `certifications` (optional `description` and `image` of the certificate). |
+| `data/cv.json` | `education`: degree, institution, dates, `gpa`, `scholarships`, optional `advisor`, `thesis`, `expectedGraduation`, and `logo` (e.g. `assets/images/logos/khu.png`; the logo appears beside the card once the file exists). |
 
 Available icon names are the `id="i-…"` values in `assets/icons/sprite.svg`, for example `atom`, `cpu`, `network`, `brain-circuit`, `shield-check`, `flask-conical`.
 
@@ -344,11 +325,11 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 - [x] **Google Scholar metrics and per-paper citation counts.** Added from your Scholar profile (Oct 2026). Update `metrics` in `profile.json` and the `citations` fields in `publications.json` when you want them refreshed.
 - [ ] **DOIs and publisher links** for each paper. These enable the DOI and Publisher buttons and richer BibTeX. PDFs of accepted manuscripts are optional, where the publishers allow them.
 - [ ] **Publication status** where relevant. Examples: whether the 2025/2026 IEEE TNSE papers are in early access; whether you want per-paper `status` badges.
+- [ ] **University logos** for Kyung Hee University and NUST (PNG or SVG, square-ish, ideally with a white or transparent background). Save them as `assets/images/logos/khu.png` and `assets/images/logos/nust.png` and set `logo` in `data/cv.json`. Use only logos you are permitted to use, such as the files on the universities' official brand pages.
 - [ ] **Ph.D. advisor, dissertation title and expected graduation date** (`data/cv.json`). They are hidden until filled in.
-- [ ] **ICOIN 2026 location** (and any talks, research visits or invited events) in `data/conferences.json`. The other conference cities and months came from your CV source file.
 - [ ] **Patent filing dates and one-line technical descriptions** (`data/achievements.json`). The CV gives numbers and status only.
 - [ ] **Project details** (`description`, `problem`, `tools`, `papers`, `repo`) in `data/projects.json`, if you want richer project cards. Please also check the project title *"Development of 6H Next-Generation Mobile Communications Technology"*. It is copied exactly as written in the CV; if "6H" is a typo for "6G", correct it in both `projects.json` and your CV.
 - [ ] **Teaching experience, scholarships and fellowships**, if any. None are listed in the CV, so those sections were not created.
 - [ ] **GoatCounter account, token and repository settings** to switch on visitor statistics ([Visitor analytics](#visitor-analytics)).
 - [ ] **Descriptions on your research-code GitHub repositories**, so they appear in the GitHub widget.
-- [ ] **Review the wording** of the bio (home page), research-theme summaries (`data/research.json`) and timeline descriptions. They are paraphrased from your CV and paper titles; adjust the tone as you like.
+- [ ] **Review the wording** of the bio (home page), research-theme summaries (`data/research.json`), plus the `summary` lines in `data/publications.json`. They are my paraphrase of your paper titles and CV: please check each technical statement.

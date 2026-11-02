@@ -1,60 +1,98 @@
 {
-  "_comment": "Research themes. 'id' must match the theme keys used in publications.json and projects.json. Add \"image\": \"assets/images/<file>\" to show a figure on the card.",
+  "_comment": "Research themes. 'id' must match theme keys in publications.json/projects.json. tagline+relevant show on the home page; problem, approach, papers and projects show on research.html.",
   "themes": [
-    {
-      "id": "qml",
-      "icon": "brain-circuit",
-      "title": "Quantum Machine Learning",
-      "summary": "Machine-learning frameworks for quantum state classification and discrimination, hybrid quantum–classical neural networks built from variational quantum circuits, hybrid quantum–classical vision models, and quantum-assisted reinforcement learning.",
-      "keywords": [
-        "Quantum state classification",
-        "Variational quantum circuits",
-        "Hybrid quantum–classical models",
-        "Quantum reinforcement learning",
-        "Explainable QML"
-      ]
-    },
-    {
-      "id": "vqa",
-      "icon": "network",
-      "title": "Variational Algorithms & Quantum Optimization",
-      "summary": "Variational quantum circuits on IBM Quantum backends for hybrid quantum–classical optimization, including VQE- and QUBO-based formulations for network scheduling, traffic routing, EV charging scheduling, and other NP-hard decision problems in next-generation intelligent networks.",
-      "keywords": [
-        "VQE",
-        "QUBO",
-        "Network scheduling",
-        "Resource optimization"
-      ]
-    },
     {
       "id": "qcomm",
       "icon": "shield-check",
       "title": "Quantum Communication & Networks",
-      "summary": "Protocols and channel models for reliable and privacy-preserving quantum networks: controlled quantum semantic communication for industrial cyber-physical systems, full-duplex anonymous communication in adversarial quantum networks, and MIMO quantum communication over correlated pure-loss channels.",
+      "tagline": "Reliable and private communication over lossy, correlated and adversarial quantum links.",
+      "problem": "Quantum networks must carry information over lossy channels whose noise is correlated across modes, in the presence of active adversaries, and for applications that care about meaning rather than raw bits. How much can multi-mode (MIMO) quantum links deliver when losses are correlated? Can communication be anonymous and full-duplex against an adversary? What does a semantic, task-level view of quantum communication look like for industrial networks?",
+      "approach": "I study MIMO quantum communication over correlated pure-loss channels; controlled quantum semantic communication for industrial cyber-physical systems (CPS) networks; full-duplex anonymous communication in adversarial quantum networks; quantum random access codes for image transmission; and quantum fusion learning for 6G networks. This line is tied to the NRF programmes on integrating 6G wireless with quantum networks and on meta-privacy.",
+      "relevant": [
+        "Quantum networking & quantum internet",
+        "Secure communication",
+        "Telecom / 6G R&D"
+      ],
       "keywords": [
-        "Quantum semantic communication",
+        "MIMO quantum communication",
+        "Pure-loss channels",
+        "Semantic communication",
         "Anonymous communication",
-        "Quantum MIMO",
-        "Secure quantum communication"
+        "Quantum random access codes"
       ]
     },
     {
       "id": "qctrl",
       "icon": "atom",
       "title": "Quantum Control & Hardware",
-      "summary": "Reinforcement-learning-based quantum control and pulse-level gate design: quantum optimal control with pulses, deep reinforcement learning for pulse shaping in single-photon emitters, RL-based NISQ state preparation, quantum reservoir learning for Rydberg-lattice control, and Purcell-filter design for superconducting circuits.",
+      "tagline": "Learning-based pulse and Hamiltonian control for Rydberg, single-photon and superconducting platforms.",
+      "problem": "Gate and state-preparation fidelity on real hardware is limited by pulse design and by how well control and device physics are co-designed. Can reinforcement learning and reservoir-style learning find pulses and Hamiltonian controls that hand-designed protocols miss, and can circuit-level design (such as Purcell filtering) be made analytical rather than trial-and-error?",
+      "approach": "I work on quantum optimal control with pulses; deep reinforcement learning for optimal pulse shaping in single-photon quantum emitters; reinforcement-learning-based NISQ state preparation; analytical design of an LC double-notch Purcell filter for superconducting circuits; and quantum reservoir learning for reinforcement-learning-optimized pulse and Hamiltonian control of a Rydberg lattice.",
+      "relevant": [
+        "Neutral-atom (Rydberg) hardware",
+        "Superconducting-qubit hardware",
+        "Single-photon sources",
+        "Quantum control software"
+      ],
       "keywords": [
         "Pulse-level control",
         "Reinforcement learning",
+        "Reservoir learning",
         "Rydberg lattices",
-        "Superconducting circuits"
+        "Purcell filters"
+      ]
+    },
+    {
+      "id": "qml",
+      "icon": "brain-circuit",
+      "title": "Quantum Machine Learning",
+      "tagline": "Learning-based characterisation of quantum states, and hybrid quantum–classical models.",
+      "problem": "Near-term devices produce noisy, high-dimensional quantum data that is costly to characterise, and parameterised quantum circuits are only useful if they can be embedded in learning pipelines and understood. How can learned models classify and discriminate quantum states that matter for metrology? Where do variational circuits fit in hybrid models, and which design choices (data encoding, entangling gates, circuit depth) shape what the model learns?",
+      "approach": "I work on deep neural networks for multiclass classification of metrologically resourceful tripartite states; neural networks built from variational quantum circuits; hybrid quantum–classical vision models; quantum-assisted reinforcement learning; and a survey of quantum machine learning for drug discovery. In the 2025 IonQ Summer Research Mentoring Program I studied explainability of quantum machine learning models.",
+      "relevant": [
+        "Applied QML teams",
+        "Drug discovery & life sciences",
+        "Quantum metrology & sensing"
+      ],
+      "keywords": [
+        "Quantum state classification",
+        "Variational quantum circuits",
+        "Hybrid quantum–classical models",
+        "Explainable QML"
+      ]
+    },
+    {
+      "id": "vqa",
+      "icon": "network",
+      "title": "Variational Algorithms & Optimization",
+      "tagline": "Mapping network and transport scheduling problems onto variational quantum circuits.",
+      "problem": "Scheduling and routing in communication and transport networks are NP-hard, and real instances are large. Can they be written as QUBO or Hamiltonian problems that variational algorithms solve on today's IBM Quantum backends, and what do hybrid quantum–classical solvers offer for edge intelligence and resource allocation?",
+      "approach": "I work on the variational quantum eigensolver (VQE) for network scheduling using a QUBO formulation; VQE-based traffic routing and EV charging scheduling for intelligent transportation systems; and variational circuits for hybrid optimization. I was principal investigator on two Brain Korea 21 projects in this area.",
+      "relevant": [
+        "Logistics & transportation",
+        "Network operators",
+        "Quantum cloud & optimization software"
+      ],
+      "keywords": [
+        "VQE",
+        "QUBO",
+        "Network scheduling",
+        "Traffic routing",
+        "Hybrid optimization"
       ]
     },
     {
       "id": "qem",
       "icon": "cpu",
       "title": "Error Mitigation & NISQ Computing",
-      "summary": "Error mitigation for noisy intermediate-scale quantum devices: measurement and readout error mitigation, adaptive readout error mitigation with transfer learning, and machine-learning-based qubit state estimation on IBM Quantum hardware.",
+      "tagline": "Cheap, adaptive mitigation of readout and measurement errors on noisy devices.",
+      "problem": "Noise caps what NISQ devices can do. Full tomography is too expensive to repeat as devices drift, so can measurement and readout errors be mitigated adaptively, with learned models that transfer across devices and over time?",
+      "approach": "I work on measurement error mitigation for NISQ devices; adaptive quantum readout error mitigation with transfer learning; and machine-learning-based qubit state estimation on IBM Quantum hardware.",
+      "relevant": [
+        "Quantum hardware vendors",
+        "Cloud quantum platforms",
+        "Calibration & benchmarking"
+      ],
       "keywords": [
         "Readout error mitigation",
         "Transfer learning",
@@ -110,28 +148,72 @@
         "FPGA DSP pipelines (FIR, FFT, fixed-point)",
         "ADC/DAC data acquisition"
       ]
-    },
-    {
-      "group": "Research areas",
-      "icon": "flask-conical",
-      "items": [
-        "Quantum machine learning",
-        "Hybrid quantum–classical algorithms",
-        "Secure quantum communication",
-        "Quantum control",
-        "Quantum error mitigation",
-        "Quantum information theory"
-      ]
-    },
-    {
-      "group": "Professional",
-      "icon": "users",
-      "items": [
-        "Research proposal writing",
-        "Project management",
-        "Mentoring researchers",
-        "Manuscript preparation and reviewer responses"
-      ]
     }
-  ]
+  ],
+  "collaboration": {
+    "industry": [
+      {
+        "title": "Quantum hardware & cloud platforms",
+        "text": "Pulse-level control, learned state preparation and readout-error mitigation for neutral-atom, superconducting and single-photon systems.",
+        "themes": [
+          "qctrl",
+          "qem"
+        ]
+      },
+      {
+        "title": "Quantum networking & secure communication",
+        "text": "MIMO links over correlated lossy channels, anonymity against adversaries, and semantic communication for industrial networks.",
+        "themes": [
+          "qcomm"
+        ]
+      },
+      {
+        "title": "Telecom & 6G research",
+        "text": "Integrating quantum links with 6G wireless networks, and quantum fusion learning for network intelligence.",
+        "themes": [
+          "qcomm",
+          "vqa"
+        ]
+      },
+      {
+        "title": "Optimization & applied QML",
+        "text": "VQE/QUBO formulations for scheduling and routing, and hybrid quantum–classical models for vision and drug discovery.",
+        "themes": [
+          "vqa",
+          "qml"
+        ]
+      }
+    ],
+    "academic": [
+      {
+        "title": "Quantum communication & information theory",
+        "text": "Bosonic and multi-mode channels, anonymity and privacy, and semantic communication.",
+        "themes": [
+          "qcomm"
+        ]
+      },
+      {
+        "title": "Learning-based quantum control",
+        "text": "Reinforcement and reservoir learning for Rydberg-lattice and superconducting-circuit control.",
+        "themes": [
+          "qctrl"
+        ]
+      },
+      {
+        "title": "Variational algorithms & explainable QML",
+        "text": "Design choices in variational circuits and what they imply for interpretability.",
+        "themes": [
+          "qml",
+          "vqa"
+        ]
+      },
+      {
+        "title": "NISQ characterisation",
+        "text": "Adaptive error mitigation and transferable models of device noise.",
+        "themes": [
+          "qem"
+        ]
+      }
+    ]
+  }
 }

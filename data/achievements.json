@@ -1,6 +1,11 @@
 {
   "awards": [
     {
+      "year": "2021, 2023",
+      "title": "KHU Khreative U+ Fellowship",
+      "event": "Kyung Hee University"
+    },
+    {
       "year": 2025,
       "title": "Best Paper Award",
       "event": "Korea Information and Communications Society (KICS) Conference",
@@ -32,20 +37,6 @@
       "title": "Qiskit Global Summer School on Quantum Machine Learning",
       "issuer": "IBM Quantum",
       "link": "https://challenges.quantum.ibm.com/qgss21"
-    }
-  ],
-  "leadership": [
-    {
-      "title": "Principal Investigator on two Brain Korea 21 (BK21) projects",
-      "description": "Hybrid quantum–classical computation for optimization and machine learning (2021–2022); variational quantum computing for optimization (2023–2024)."
-    },
-    {
-      "title": "Research leadership and mentoring",
-      "description": "Five years of experience crafting research proposals, managing projects, and mentoring researchers; coordinating lab research activities and supporting new student admissions and onboarding at CQILAB."
-    },
-    {
-      "title": "Funded research programs",
-      "description": "Team member on nine national and university research programs funded by NRF, IITP, and Kyung Hee University, contributing proposal writing, project planning, technical documentation, and progress reports."
     }
   ],
   "patents": [
@@ -80,32 +71,6 @@
       "numberType": "Application No.",
       "status": "Submitted",
       "inventors": "H. Shin, H.J. Jung, M.S. Choi, F. Zaman, S.M.A. Rizvi, S.A. Wachid, F. Dzulfikar"
-    }
-  ],
-  "honors": [
-    {
-      "title": "KHU Khreative U+ Fellowship",
-      "period": "2021 and 2023",
-      "issuer": "Kyung Hee University",
-      "kind": "Fellowship"
-    },
-    {
-      "title": "Doctoral Research Fellowship, Brain Korea 21 (BK21)",
-      "period": "2021 – Present",
-      "issuer": "Brain Korea 21, South Korea",
-      "kind": "Fellowship"
-    },
-    {
-      "title": "Graduate Student Scholarship",
-      "period": "2021 – Present",
-      "issuer": "Kyung Hee University",
-      "kind": "Scholarship"
-    },
-    {
-      "title": "High GPA Achievement Award",
-      "period": "",
-      "issuer": "National University of Sciences and Technology (NUST)",
-      "kind": "Award"
     }
   ]
 }

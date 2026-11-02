@@ -239,146 +239,55 @@
 
   /* ---------- page: home ---------- */
   function renderHome(profile) {
-    Promise.all([Site.load('publications'), Site.load('achievements'), Site.load('projects'), Site.load('research'), Site.load('timeline')])
+    Promise.all([Site.load('publications'), Site.load('achievements'), Site.load('research')])
       .then(function (d) {
-        const pubs = d[0].publications, ach = d[1], projects = d[2].projects, research = d[3], timeline = d[4].events;
-
-        // statistics — only values derivable from the data (and optional Scholar metrics)
+        const pubs = d[0].publications, ach = d[1], research = d[2];
+        const m = profile.metrics || {};
         const n = function (t) { return pubs.filter(function (x) { return x.type === t; }).length; };
         const granted = ach.patents.filter(function (x) { return /grant/i.test(x.status); }).length;
-        const pi = projects.filter(function (x) { return /principal/i.test(x.role); }).length;
-        const m = profile.metrics || {};
         const src = 'Google Scholar' + (m.asOf ? ' · ' + m.asOf : '');
         const stats = [];
         if (m.citations != null) stats.push({ v: m.citations, l: 'Citations', s: src });
         if (m.hIndex != null) stats.push({ v: m.hIndex, l: 'h-index', s: src });
         if (m.i10Index != null) stats.push({ v: m.i10Index, l: 'i10-index', s: src });
-        stats.push(
-          { v: n('journal'), l: 'Journal articles' },
-          { v: n('conference'), l: 'Conference papers' },
-          { v: ach.patents.length, l: 'Patents', s: granted ? granted + ' granted · ' + (ach.patents.length - granted) + ' pending' : '' },
-          { v: ach.awards.length, l: 'Best paper awards' },
-          { v: projects.length, l: 'Funded projects', s: pi ? pi + ' as principal investigator' : '' }
-        );
+        stats.push({ v: n('journal'), l: 'Journal articles' }, { v: n('conference'), l: 'Conference papers' },
+          { v: ach.patents.length, l: 'Patents', s: granted ? granted + ' granted · ' + (ach.patents.length - granted) + ' pending' : '' });
         $('#stats').innerHTML = stats.filter(function (s) { return s.v; }).map(function (s) {
           return '<div class="stat"><span class="value">' + esc(s.v) + '</span><span class="label">' + esc(s.l) + '</span>' + (s.s ? '<span class="sub">' + esc(s.s) + '</span>' : '') + '</div>';
         }).join('');
 
-        // research areas
+        // research areas: the problem each one addresses and who it matters to
         $('#focus-list').innerHTML = research.themes.map(function (t) {
-          return '<li><a href="research.html#' + esc(t.id) + '">' + icon(t.icon) + '<span>' + esc(t.title) + '</span></a></li>';
+          return '<article class="card card-hover area-card"><header><span class="theme-icon">' + icon(t.icon) + '</span><h3>' + esc(t.title) + '</h3></header>' +
+            '<p class="area-tagline">' + esc(t.tagline) + '</p>' +
+            '<div><p class="area-label">Relevant to</p><ul class="tags">' + (t.relevant || []).map(function (r) { return '<li class="tag">' + esc(r) + '</li>'; }).join('') + '</ul></div>' +
+            '<a class="more-link" href="research.html#' + esc(t.id) + '">The problem and my approach ' + icon('arrow-right') + '</a></article>';
         }).join('');
 
-        // latest publications
-        const latest = Site.Pubs.sorted(pubs, 'desc').slice(0, 4);
-        $('#latest-list').innerHTML = latest.map(function (p) {
-          return '<li class="latest-item"><span class="latest-year">' + esc(p.year) + '</span><div>' +
-            '<p class="pub-title"><a href="publications.html#' + esc(p.id) + '">' + esc(p.title) + '</a></p>' +
-            '<p class="pub-authors">' + Site.highlightAuthors(p.authors, profile.highlightNames) + '</p>' +
-            '<p class="pub-venue" style="margin:0"><em>' + esc(p.venue) + '</em>' + (p.award ? ' &nbsp;<span class="badge badge-award">' + icon('award') + esc(p.award) + '</span>' : '') + '</p>' +
-            '</div></li>';
+        // selected publications
+        const themeName = {};
+        research.themes.forEach(function (t) { themeName[t.id] = t.title; });
+        const sel = Site.Pubs.sorted(pubs.filter(function (p) { return p.selected; }), 'desc');
+        $('#selected-list').innerHTML = sel.map(function (p) {
+          return '<li class="card selected-item"><div class="sel-top"><span class="sel-year">' + esc(p.year) + '</span>' +
+            (p.award ? '<span class="badge badge-award">' + icon('trophy') + esc(p.award) + '</span>' : '') +
+            (p.citations != null ? '<span class="badge">' + icon('quote') + 'Cited by ' + esc(p.citations) + '</span>' : '') + '</div>' +
+            '<h3 class="pub-title"><a href="publications.html#' + esc(p.id) + '">' + esc(p.title) + '</a></h3>' +
+            '<p class="sel-summary">' + esc(p.summary) + '</p>' +
+            '<p class="pub-venue" style="margin:0"><em>' + esc(p.shortVenue ? p.venue.replace(/\s*\([^)]*\)$/, '') : p.venue) + '</em></p></li>';
         }).join('');
 
-        // recent milestones: first three dated (non-"present") events
-        const ms = timeline.filter(function (e) { return e.date !== 'present'; }).slice(0, 3);
-        $('#milestones').innerHTML = ms.map(function (e) {
-          return '<article class="card tl-card cat-' + esc(e.category) + '"><div class="tl-head"><span class="tl-cat">' + icon(CAT[e.category].icon) + esc(CAT[e.category].label) + '</span><span class="tl-date">' + esc(fmtDate(e.date)) + '</span></div>' +
-            '<h3>' + esc(e.title) + '</h3>' + (e.description ? '<p class="desc small">' + esc(e.description) + '</p>' : '') + '</article>';
-        }).join('');
+        // collaboration interests
+        const grp = function (title, icn, items) {
+          return '<div class="card collab-card"><h3>' + icon(icn) + esc(title) + '</h3><ul class="collab-list">' + items.map(function (i) {
+            return '<li><strong>' + esc(i.title) + '.</strong> ' + esc(i.text) + '</li>';
+          }).join('') + '</ul></div>';
+        };
+        $('#collab-root').innerHTML = grp('Quantum industry', 'building-2', research.collaboration.industry) +
+          grp('Academic groups', 'users', research.collaboration.academic);
         Site.reveal($('main'));
       })
-      .catch(function (e) { Site.fail($('#latest-list'), e); });
-  }
-
-  /* ---------- page: journey ---------- */
-  const CAT = {
-    education: { label: 'Education', icon: 'graduation-cap' },
-    position: { label: 'Position', icon: 'briefcase' },
-    research: { label: 'Research', icon: 'flask-conical' },
-    publication: { label: 'Publication', icon: 'book-open' },
-    conference: { label: 'Conference', icon: 'presentation' },
-    award: { label: 'Award', icon: 'trophy' },
-    patent: { label: 'Patent', icon: 'scroll-text' },
-    certification: { label: 'Certification', icon: 'file-badge' }
-  };
-  Site.CAT = CAT;
-  const MONTHS = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
-  function fmtDate(d) {
-    if (d === 'present') return 'Present';
-    const m = /^(\d{4})-(\d{2})/.exec(d);
-    return m ? MONTHS[+m[2] - 1] + ' ' + m[1] : d;
-  }
-  function yearOf(d) { return d === 'present' ? 'Now' : String(d).slice(0, 4); }
-
-  function renderJourney(profile) {
-    Promise.all([Site.load('timeline'), Site.load('publications'), Site.load('conferences')]).then(function (d) {
-      const events = d[0].events, pubs = d[1].publications, conf = d[2];
-      const byId = {};
-      pubs.forEach(function (p) { byId[p.id] = p; });
-      const cats = Object.keys(CAT).filter(function (c) { return events.some(function (e) { return e.category === c; }); });
-      const root = $('#timeline-root');
-
-      function draw(filter) {
-        const list = events.filter(function (e) { return !filter || e.category === filter; });
-        if (!list.length) { root.innerHTML = '<p class="empty-note">No entries in this category.</p>'; return; }
-        const groups = [];
-        list.forEach(function (e) {
-          const y = yearOf(e.date);
-          if (!groups.length || groups[groups.length - 1].year !== y) groups.push({ year: y, items: [] });
-          groups[groups.length - 1].items.push(e);
-        });
-        root.innerHTML = '<ol class="timeline">' + groups.map(function (g) {
-          return '<li class="tl-year"><div class="tl-year-label">' + esc(g.year) + (g.year === 'Now' ? '<small>ongoing</small>' : '') + '</div><ol class="tl-items">' +
-            g.items.map(function (e) {
-              const c = CAT[e.category] || CAT.research;
-              const papers = (e.papers || []).map(function (id) { return byId[id]; }).filter(Boolean);
-              let links = papers.map(function (p) {
-                return '<a href="publications.html#' + esc(p.id) + '">' + icon('file-text') + esc(p.shortVenue || shortVenue(p.venue)) + ' ' + esc(p.year) + '</a>';
-              });
-              if (e.link) links.push('<a href="' + esc(e.link) + '"' + (/^https?:/.test(e.link) ? ' rel="noopener"' : '') + '>' + icon('external-link') + esc(e.linkLabel || 'Details') + '</a>');
-              return '<li class="tl-item cat-' + esc(e.category) + '"><article class="card tl-card">' +
-                '<div class="tl-head"><span class="tl-cat">' + icon(c.icon) + esc(c.label) + '</span>' + (/^\d{4}-\d{2}/.test(e.date) ? '<span class="tl-date">' + esc(fmtDate(e.date)) + '</span>' : '') + '</div>' +
-                '<h3>' + esc(e.title) + '</h3>' +
-                (e.institution ? '<p class="tl-inst">' + esc(e.institution) + '</p>' : '') +
-                (e.description ? '<p class="desc">' + esc(e.description) + '</p>' : '') +
-                (links.length ? '<div class="tl-links">' + links.join('') + '</div>' : '') +
-                '</article></li>';
-            }).join('') + '</ol></li>';
-        }).join('') + '</ol>';
-        Site.reveal(root);
-      }
-
-      Site.chips($('#timeline-filters'), [{ value: '', label: 'All' }].concat(cats.map(function (c) {
-        return { value: c, label: CAT[c].label, count: events.filter(function (e) { return e.category === c; }).length };
-      })), '', draw);
-      draw('');
-
-      // places + conferences map
-      const pts = conf.places.map(function (p) { return { lon: p.lon, lat: p.lat, r: 6, label: p.city, title: p.label + ' — ' + p.city + ', ' + p.country }; });
-      conf.conferences.forEach(function (c) {
-        if (c.lat != null && c.lon != null) pts.push({ lon: c.lon, lat: c.lat, r: 4, title: c.short + ' ' + (c.date || c.year) + (c.city ? ' — ' + c.city : '') });
-      });
-      // chronological order (earliest place first) for the connecting arc
-      Site.drawMap($('#places-map'), pts.slice(0, conf.places.length).reverse().concat(pts.slice(conf.places.length)), { arcs: true });
-      $('#places-legend').innerHTML = conf.places.map(function (p) {
-        return '<li><span class="dot"></span><span><strong>' + esc(p.label) + '</strong> — ' + esc(p.city) + ', ' + esc(p.country) + '<br><span class="muted small">' + esc(p.detail) + '</span></span></li>';
-      }).join('');
-
-      $('#conf-list').innerHTML = conf.conferences.map(function (c) {
-        const ps = (c.papers || []).map(function (id) { return byId[id]; }).filter(Boolean);
-        const award = ps.filter(function (p) { return p.award; });
-        const loc = [c.city, c.country].filter(Boolean).join(', ');
-        return '<li class="card conf-item"><div class="conf-top"><span class="short">' + esc(c.short) + '</span><span class="yr">' + esc(c.date || c.year) + '</span></div>' +
-          '<p class="full">' + (c.edition ? esc(c.edition) + ' ' : '') + esc(c.name) + '</p>' +
-          '<ul>' + ps.map(function (p) { return '<li><a href="publications.html#' + esc(p.id) + '">' + esc(p.title) + '</a></li>'; }).join('') + '</ul>' +
-          (award.length ? '<p style="margin:8px 0 0"><span class="badge badge-award">' + icon('trophy') + 'Best Paper Award</span></p>' : '') +
-          (loc ? '<span class="loc">' + icon('map-pin') + esc(loc) + '</span>' : '') + '</li>';
-      }).join('');
-    }).catch(function (e) { Site.fail($('#timeline-root'), e); });
-  }
-  function shortVenue(v) {
-    const m = /\(([A-Z]{2,})\)/.exec(v);
-    return m ? m[1] : v;
+      .catch(function (e) { Site.fail($('#selected-list'), e); });
   }
 
   /* ---------- page: research ---------- */
@@ -388,23 +297,22 @@
       $('#themes-root').innerHTML = research.themes.map(function (t) {
         const rp = Site.Pubs.sorted(pubs.filter(function (p) { return (p.themes || []).indexOf(t.id) >= 0; }), 'desc');
         const pj = projects.filter(function (p) { return (p.themes || []).indexOf(t.id) >= 0; });
-        const latest = rp.length ? rp[0].year : null;
-        const status = [rp.length + ' publication' + (rp.length === 1 ? '' : 's')];
-        if (pj.length) status.push(pj.length + ' funded project' + (pj.length === 1 ? '' : 's'));
-        if (latest) status.push('most recent output ' + latest);
-        return '<article class="card theme-card" id="' + esc(t.id) + '">' +
-          '<header><span class="theme-icon">' + icon(t.icon) + '</span><div><h2 style="font-size:1.25rem;margin:0 0 4px">' + esc(t.title) + '</h2><p class="theme-status">' + esc(status.join(' · ')) + '</p></div></header>' +
-          (t.image ? '<figure class="theme-figure"><img src="' + esc(t.image) + '" alt="' + esc(t.imageAlt || t.title) + '" loading="lazy"></figure>' : '') +
-          '<p class="summary">' + esc(t.summary) + '</p>' +
-          '<ul class="tags">' + t.keywords.map(function (k) { return '<li class="tag">' + esc(k) + '</li>'; }).join('') + '</ul>' +
-          (rp.length ? '<div class="related"><h3>Related papers</h3><ul>' + rp.slice(0, 5).map(function (p) {
-            return '<li><a href="publications.html#' + esc(p.id) + '">' + esc(p.title) + '</a> <span class="yr">(' + esc(p.year) + ')</span></li>';
-          }).join('') + '</ul></div>' : '') +
-          (pj.length ? '<div class="related"><h3>Related projects</h3><ul>' + pj.map(function (p) {
-            return '<li>' + esc(p.title) + ' <span class="yr">(' + esc(p.start) + '–' + esc(p.end) + ')</span></li>';
-          }).join('') + '</ul></div>' : '') +
-          (rp.length ? '<a class="more-link" href="publications.html?theme=' + esc(t.id) + '">All ' + rp.length + ' papers in this area ' + icon('arrow-right') + '</a>' : '') +
-          '</article>';
+        const stat = [rp.length + ' publication' + (rp.length === 1 ? '' : 's')];
+        if (pj.length) stat.push(pj.length + ' funded project' + (pj.length === 1 ? '' : 's'));
+        return '<article class="card theme-card theme-wide" id="' + esc(t.id) + '">' +
+          '<header><span class="theme-icon">' + icon(t.icon) + '</span><div><h2 style="font-size:1.35rem;margin:0 0 4px">' + esc(t.title) + '</h2><p class="theme-status">' + esc(stat.join(' · ')) + '</p></div></header>' +
+          '<div class="theme-cols"><div>' +
+            '<h3 class="mini-h">The problem</h3><p class="summary">' + esc(t.problem) + '</p>' +
+            '<h3 class="mini-h">My approach</h3><p class="summary">' + esc(t.approach) + '</p>' +
+            '<ul class="tags">' + t.keywords.map(function (k) { return '<li class="tag">' + esc(k) + '</li>'; }).join('') + '</ul>' +
+          '</div><div class="related">' +
+            (rp.length ? '<h3 class="mini-h">Papers</h3><ul>' + rp.map(function (p) {
+              return '<li><a href="publications.html#' + esc(p.id) + '">' + esc(p.title) + '</a> <span class="yr">(' + esc(p.year) + ')</span></li>';
+            }).join('') + '</ul>' : '') +
+            (pj.length ? '<h3 class="mini-h">Funded projects</h3><ul>' + pj.map(function (p) {
+              return '<li>' + esc(p.title) + ' <span class="yr">(' + esc(p.start) + '–' + esc(p.end) + ')</span></li>';
+            }).join('') + '</ul>' : '') +
+          '</div></div></article>';
       }).join('');
       $('#skills-root').innerHTML = research.skills.map(function (g) {
         return '<div class="card skill-group"><h3>' + icon(g.icon) + esc(g.group) + '</h3><ul class="tags">' +
@@ -475,10 +383,6 @@
           '<span class="year">' + esc(w.year) + '</span><h3>' + esc(w.title) + '</h3><p class="muted">' + esc(w.event) + '</p>' +
           (p ? '<p>For <a href="publications.html#' + esc(p.id) + '">“' + esc(p.title) + '”</a></p>' : '') + '</div></article>';
       }).join('');
-      $('#fellowships-root').innerHTML = (a.honors || []).map(function (h) {
-        return '<article class="card award-card"><span class="award-icon">' + icon(h.kind === 'Award' ? 'award' : 'graduation-cap') + '</span><div>' +
-          (h.period ? '<span class="year">' + esc(h.period) + '</span>' : '') + '<h3>' + esc(h.title) + '</h3><p class="muted">' + esc(h.issuer) + '</p></div></article>';
-      }).join('');
       $('#patents-root').innerHTML = a.patents.map(function (p) {
         return '<article class="card patent-card">' +
           '<div class="project-top"><span class="num">' + esc(p.country) + ' ' + esc(p.numberType) + ' ' + esc(p.number) + '</span><span class="badge badge-' + esc(p.status.toLowerCase()) + '">' + esc(p.status) + '</span></div>' +
@@ -487,9 +391,6 @@
           (p.filed ? '<p class="small muted" style="margin:0">Filed ' + esc(p.filed) + '</p>' : '') +
           (p.description ? '<p class="small" style="margin:0">' + esc(p.description) + '</p>' : '') +
           '</article>';
-      }).join('');
-      $('#leadership-root').innerHTML = a.leadership.map(function (l) {
-        return '<article class="card"><h3>' + esc(l.title) + '</h3><p class="small" style="margin:0">' + esc(l.description) + '</p></article>';
       }).join('');
       $('#cert-root').innerHTML = a.certifications.map(function (c) {
         return '<article class="card award-card"><span class="award-icon">' + icon('file-badge') + '</span><div><span class="year">' + esc(c.date) + '</span>' +
@@ -513,19 +414,12 @@
         if (e.thesis) rows.push(['Dissertation', e.thesis]);
         if (e.expectedGraduation) rows.push(['Expected graduation', e.expectedGraduation]);
         if (e.gpa) rows.push(['GPA', e.gpa]);
-        return '<li><article class="card"><div class="vt-head"><h3>' + esc(e.degree) + '</h3><span class="vt-dates">' + esc(e.start) + ' – ' + esc(e.end) + '</span></div>' +
+        if (e.scholarships) rows.push(['Scholarships', e.scholarships]);
+        const logo = e.logo ? '<img class="edu-logo" src="' + esc(e.logo) + '" alt="' + esc(e.logoAlt || e.institution + ' logo') + '" loading="lazy">' : '';
+        return '<li><article class="card edu-card' + (logo ? ' has-logo' : '') + '">' + logo + '<div class="edu-body"><div class="vt-head"><h2 class="edu-degree">' + esc(e.degree) + '</h2><span class="vt-dates">' + esc(e.start) + ' – ' + esc(e.end) + '</span></div>' +
           '<p class="vt-org">' + esc(e.institution) + ' · ' + esc(e.location) + '</p>' +
           (rows.length ? '<dl class="kv">' + rows.map(function (r) { return '<dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd>'; }).join('') + '</dl>' : '') +
-          '</article></li>';
-      }).join('');
-      $('#experience-root').innerHTML = cv.experience.map(function (x) {
-        return '<li><article class="card"><div class="vt-head"><h3>' + esc(x.role) + '</h3><span class="vt-dates">' + esc([x.start, x.end].filter(Boolean).join(' – ')) + '</span></div>' +
-          '<p class="vt-org">' + esc([x.org, x.location].filter(Boolean).join(' · ')) + '</p>' +
-          '<ul class="bullets">' + x.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' +
-          (x.links && x.links.length ? '<div class="tl-links">' + x.links.map(function (l) {
-            return '<a href="' + esc(l.url) + '"' + (/^https?:/.test(l.url) ? ' rel="noopener"' : '') + '>' + icon(l.icon || 'external-link') + esc(l.label) + '</a>';
-          }).join('') + '</div>' : '') +
-          '</article></li>';
+          '</div></article></li>';
       }).join('');
     }).catch(function (e) { Site.fail($('#education-root'), e); });
   }
@@ -550,7 +444,7 @@
       Site.profile = profile;
       renderSocial(profile);
       const run = {
-        home: renderHome, journey: renderJourney, research: renderResearch, projects: renderProjects,
+        home: renderHome, research: renderResearch, projects: renderProjects,
         achievements: renderAchievements, education: renderEducation, contact: renderContact,
         publications: function (p) { Site.Pubs.page(p); }
       }[page];
