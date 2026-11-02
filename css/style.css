@@ -734,4 +734,3 @@ main, .site-footer { position: relative; z-index: 1; }
 .bg-toggle.off .icon { opacity: .55; }
 .nav-wrap { gap: 8px; }
 @media print { .bg-canvas, .bg-toggle { display: none !important; } }
-.bg-toggle:disabled { cursor: not-allowed; opacity: .45; }

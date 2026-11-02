@@ -1,12 +1,12 @@
 /* ==========================================================================
-   background.js — a quiet, interactive quantum-themed canvas behind the pages.
+   background.js — a quiet, non-interactive quantum-themed canvas behind the pages.
 
    Items: Dirac-notation and equation glyphs, circuit gates (H, X, Z, S, T,
    CNOT), a rotating Bloch sphere, Rydberg-atom orbits, qubit lattices with
    blockade-style links, Josephson junctions and Gaussian control pulses.
 
-   Interaction: items drift away from the pointer, items near the pointer are
-   linked by faint "entanglement" curves, and a click/tap sends out a ripple.
+   The symbols drift on their own and do not react to the pointer, clicks or
+   scrolling.
 
    Accessibility and cost: decorative only (aria-hidden); a header button
    pauses it (choice remembered); prefers-reduced-motion starts it paused
@@ -21,15 +21,9 @@
   var stored = null;
   try { stored = localStorage.getItem(KEY); } catch (e) { /* storage unavailable */ }
   var animate = stored ? stored === 'on' : !reduceMq.matches;
-  var KEY2 = 'bg-interact';
-  var storedI = null;
-  try { storedI = localStorage.getItem(KEY2); } catch (e) { /* storage unavailable */ }
-  var interactive = storedI ? storedI === 'on' : true;
 
   var canvas, ctx, W = 0, H = 0, dpr = 1;
-  var items = [], ripples = [];
-  var mouse = { x: -9999, y: -9999, active: false };
-  var scrollY = window.scrollY || 0;
+  var items = [];
   var colors = { ink: '#1f3b6b', accent: '#9c4317', dark: false };
   var raf = 0, last = 0, running = false;
 
@@ -47,7 +41,7 @@
 
   function makeItem(type) {
     var small = W < 700;
-    var depth = rand(0.15, 0.6);                 // parallax factor
+    var depth = rand(0.15, 0.6);                 // depth: controls brightness only
     var it = {
       type: type, x: rand(0, W), y: rand(0, H), depth: depth,
       vx: rand(-9, 9), vy: rand(-8, 8), rot: rand(-0.4, 0.4), vrot: rand(-0.05, 0.05),
@@ -189,7 +183,7 @@
 
   function screenY(it, margin) {
     var span = H + margin * 2;
-    return ((it.y - scrollY * it.depth) % span + span) % span - margin;
+    return ((it.y % span) + span) % span - margin;
   }
 
   function render(t) {
@@ -198,63 +192,27 @@
     var pos = [];
     for (var i = 0; i < items.length; i++) { var it = items[i]; pos.push({ it: it, x: it.x, y: screenY(it, 90) }); }
 
-    // entanglement curves between items that are near the pointer
-    if (mouse.active) {
-      var near = pos.filter(function (p) { var dx = p.x - mouse.x, dy = p.y - mouse.y; return dx * dx + dy * dy < 190 * 190; });
-      ctx.lineWidth = 1.2; ctx.strokeStyle = colors.accent;
-      for (var a = 0; a < near.length; a++) {
-        var d0 = Math.hypot(near[a].x - mouse.x, near[a].y - mouse.y);
-        ctx.globalAlpha = (colors.dark ? 0.28 : 0.26) * (1 - d0 / 190);
-        ctx.beginPath(); ctx.moveTo(mouse.x, mouse.y); ctx.lineTo(near[a].x, near[a].y); ctx.stroke();
-        for (var b = a + 1; b < near.length; b++) {
-          var d = Math.hypot(near[a].x - near[b].x, near[a].y - near[b].y);
-          if (d > 240) continue;
-          ctx.globalAlpha = (colors.dark ? 0.24 : 0.22) * (1 - d / 240);
-          var mx = (near[a].x + near[b].x) / 2 + Math.sin(t * 2 + a + b) * 12, my = (near[a].y + near[b].y) / 2 + Math.cos(t * 2 + a * b) * 12;
-          ctx.beginPath(); ctx.moveTo(near[a].x, near[a].y); ctx.quadraticCurveTo(mx, my, near[b].x, near[b].y); ctx.stroke();
-        }
-      }
-    }
-
     // items
     for (i = 0; i < pos.length; i++) {
       var p = pos[i]; it = p.it;
       if (p.y < -90 || p.y > H + 90) continue;
       ctx.save();
       ctx.translate(p.x, p.y); ctx.rotate(it.rot); ctx.scale(it.s, it.s);
-      var boost = 1;
-      if (mouse.active) { var dm = Math.hypot(p.x - mouse.x, p.y - mouse.y); if (dm < 190) boost = 1 + (1 - dm / 190) * 1.6; }
-      setColor(it, boost);
+      setColor(it, 1);
       DRAW[it.type](it, t);
       ctx.restore();
     }
 
-    // measurement ripples
-    for (i = 0; i < ripples.length; i++) {
-      var rp = ripples[i], k = rp.age / 1.1;
-      ctx.globalAlpha = (colors.dark ? 0.32 : 0.3) * (1 - k); ctx.strokeStyle = colors.accent; ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.arc(rp.x, rp.y, 14 + k * 170, 0, 6.283); ctx.stroke();
-    }
     ctx.globalAlpha = 1;
   }
 
   /* ---------- simulation ---------- */
   function step(dt) {
-    var R = 150;
     for (var i = 0; i < items.length; i++) {
       var it = items[i];
       it.x += it.vx * dt; it.y += it.vy * dt; it.rot += it.vrot * dt;
-      if (mouse.active) {
-        var sy = screenY(it, 90), dx = it.x - mouse.x, dy = sy - mouse.y, d = Math.hypot(dx, dy);
-        if (d < R && d > 1) { var f = (1 - d / R) * 70 * dt; it.x += dx / d * f; it.y += dy / d * f; }
-      }
-      for (var r = 0; r < ripples.length; r++) {
-        var rp = ripples[r], sy2 = screenY(it, 90), rx = it.x - rp.x, ry = sy2 - rp.y, rd = Math.hypot(rx, ry), front = 14 + (rp.age / 1.1) * 170;
-        if (Math.abs(rd - front) < 22 && rd > 1) { it.x += rx / rd * 90 * dt; it.y += ry / rd * 90 * dt; }
-      }
       if (it.x < -100) it.x = W + 100; else if (it.x > W + 100) it.x = -100;
     }
-    for (i = ripples.length - 1; i >= 0; i--) { ripples[i].age += dt; if (ripples[i].age > 1.1) ripples.splice(i, 1); }
   }
 
   function loop(ts) {
@@ -267,7 +225,7 @@
 
   function start() { if (running || document.hidden) return; running = true; last = performance.now(); raf = requestAnimationFrame(loop); }
   function stop() { running = false; cancelAnimationFrame(raf); }
-  function drawStatic() { ripples.length = 0; render(2.4); }
+  function drawStatic() { render(2.4); }
 
   /* ---------- setup ---------- */
   function readColors() {
@@ -288,49 +246,26 @@
     if (!animate) drawStatic();
   }
 
-  function addButton(cls, icon, onLabel, offLabel, getState, onClick) {
-    var theme = document.querySelector('.theme-toggle');
-    if (!theme) return null;
-    var b = document.createElement('button');
-    b.type = 'button'; b.className = 'icon-btn bg-toggle ' + cls;
-    b.innerHTML = '<svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-' + icon + '"></use></svg>';
-    b.sync = function () {
-      var on = getState(), label = on ? onLabel : offLabel;
-      b.setAttribute('aria-pressed', String(on));
-      b.setAttribute('aria-label', label);
-      b.title = label;
-      b.classList.toggle('off', !on);
-    };
-    b.addEventListener('click', function () { onClick(); b.sync(); });
-    b.sync();
-    theme.parentNode.insertBefore(b, theme);
-    return b;
-  }
-
   function makeToggle() {
-    var interactBtn;
-    function syncInteract() {
-      if (!interactBtn) return;
-      interactBtn.sync();
-      interactBtn.disabled = !animate;
-      if (!animate) interactBtn.title = 'Play the background animation to use interactions';
+    var theme = document.querySelector('.theme-toggle');
+    if (!theme) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'icon-btn bg-toggle';
+    b.innerHTML = '<svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons/sprite.svg#i-atom"></use></svg>';
+    function sync() {
+      b.setAttribute('aria-pressed', String(animate));
+      b.setAttribute('aria-label', animate ? 'Pause background animation' : 'Play background animation');
+      b.title = animate ? 'Pause background animation' : 'Play background animation';
+      b.classList.toggle('off', !animate);
     }
-    addButton('bg-anim-btn', 'atom', 'Pause background animation', 'Play background animation',
-      function () { return animate; },
-      function () {
-        animate = !animate;
-        try { localStorage.setItem(KEY, animate ? 'on' : 'off'); } catch (e) { /* ignore */ }
-        if (animate) start(); else { stop(); mouse.active = false; drawStatic(); }
-        syncInteract();
-      });
-    interactBtn = addButton('bg-interact-btn', 'network', 'Turn background interactions off', 'Turn background interactions on',
-      function () { return interactive; },
-      function () {
-        interactive = !interactive;
-        try { localStorage.setItem(KEY2, interactive ? 'on' : 'off'); } catch (e) { /* ignore */ }
-        if (!interactive) { mouse.active = false; ripples.length = 0; }
-      });
-    syncInteract();
+    b.addEventListener('click', function () {
+      animate = !animate;
+      try { localStorage.setItem(KEY, animate ? 'on' : 'off'); } catch (e) { /* ignore */ }
+      sync();
+      if (animate) start(); else { stop(); drawStatic(); }
+    });
+    sync();
+    theme.parentNode.insertBefore(b, theme);
   }
 
   function init() {
@@ -344,12 +279,6 @@
     resize(); readColors(); makeToggle();
 
     var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(resize, 150); });
-    window.addEventListener('scroll', function () { scrollY = window.scrollY || 0; if (!animate) drawStatic(); }, { passive: true });
-    window.addEventListener('pointermove', function (e) { if (!interactive) return; mouse.x = e.clientX; mouse.y = e.clientY; mouse.active = true; }, { passive: true });
-    window.addEventListener('pointerleave', function () { mouse.active = false; });
-    document.addEventListener('mouseleave', function () { mouse.active = false; });
-    window.addEventListener('pointerup', function (e) { if (e.pointerType === 'touch') mouse.active = false; }, { passive: true });
-    window.addEventListener('pointerdown', function (e) { if (animate && interactive) ripples.push({ x: e.clientX, y: e.clientY, age: 0 }); }, { passive: true });
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (animate) start(); });
     new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     if (window.matchMedia) {
