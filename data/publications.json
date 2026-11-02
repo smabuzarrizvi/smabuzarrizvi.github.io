@@ -49,9 +49,10 @@
       "id": "paracha2026quantumfusion",
       "type": "journal",
       "title": "Quantum Fusion Learning for 6G Networks with Kolmogorov-Arnold Networks",
-      "authors": "U.I. Paracha, S.M.A. Rizvi, U. Khalid, T.Q. Duong, M.Z. Win, H. Shin",
+      "authors": "U.I. Paracha, U. Khalid, S.M.A. Rizvi, T.Q. Duong, M.Z. Win, H. Shin",
       "venue": "IEEE Transactions on Network Science and Engineering",
       "year": 2026,
+      "volume": "13",
       "themes": [
         "qml"
       ],
