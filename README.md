@@ -325,7 +325,7 @@ Set `"showActivity": false` to remove the widget. It stays hidden if the API is 
 - [x] **Google Scholar metrics and per-paper citation counts.** Added from your Scholar profile (Oct 2026). Update `metrics` in `profile.json` and the `citations` fields in `publications.json` when you want them refreshed.
 - [ ] **DOIs and publisher links** for each paper. These enable the DOI and Publisher buttons and richer BibTeX. PDFs of accepted manuscripts are optional, where the publishers allow them.
 - [ ] **Publication status** where relevant. Examples: whether the 2025/2026 IEEE TNSE papers are in early access; whether you want per-paper `status` badges.
-- [ ] **University logos** for Kyung Hee University and NUST (PNG or SVG, square-ish, ideally with a white or transparent background). Save them as `assets/images/logos/khu.png` and `assets/images/logos/nust.png` and set `logo` in `data/cv.json`. Use only logos you are permitted to use, such as the files on the universities' official brand pages.
+- [x] **University logos.** Kyung Hee University and NUST logos are in `assets/images/logos/`. Replace the files (same names) to update them.
 - [ ] **Ph.D. advisor, dissertation title and expected graduation date** (`data/cv.json`). They are hidden until filled in.
 - [ ] **Patent filing dates and one-line technical descriptions** (`data/achievements.json`). The CV gives numbers and status only.
 - [ ] **Project details** (`description`, `problem`, `tools`, `papers`, `repo`) in `data/projects.json`, if you want richer project cards. Please also check the project title *"Development of 6H Next-Generation Mobile Communications Technology"*. It is copied exactly as written in the CV; if "6H" is a typo for "6G", correct it in both `projects.json` and your CV.

@@ -12,8 +12,9 @@
       "advisor": "",
       "thesis": "",
       "expectedGraduation": "",
-      "logo": "",
-      "scholarships": "Brain Korea 21 (BK21) Plus Doctoral Research Scholarship; Kyung Hee University Graduate Student Scholarship (2021–present)"
+      "logo": "assets/images/logos/khu.png",
+      "scholarships": "Brain Korea 21 (BK21) Plus Doctoral Research Scholarship; Kyung Hee University Graduate Student Scholarship (2021–present)",
+      "logoAlt": "Kyung Hee University logo"
     },
     {
       "degree": "B.Sc. in Electrical Engineering",
@@ -22,8 +23,9 @@
       "start": "Sep. 2014",
       "end": "Jun. 2018",
       "gpa": "3.50/4.00",
-      "logo": "",
-      "scholarships": "GPA-based merit scholarship"
+      "logo": "assets/images/logos/nust.png",
+      "scholarships": "GPA-based merit scholarship",
+      "logoAlt": "National University of Sciences and Technology logo"
     }
   ]
 }
