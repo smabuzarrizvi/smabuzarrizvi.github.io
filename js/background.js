@@ -336,6 +336,8 @@
   function init() {
     canvas = document.createElement('canvas');
     canvas.className = 'bg-canvas'; canvas.setAttribute('aria-hidden', 'true');
+    // Self-contained styling: must not depend on style.css (which a browser may still have cached)
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:block';
     document.body.insertBefore(canvas, document.body.firstChild);
     ctx = canvas.getContext('2d');
     if (!ctx) return;
