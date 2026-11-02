@@ -277,6 +277,14 @@
             '<p class="pub-venue" style="margin:0"><em>' + esc(p.shortVenue ? p.venue.replace(/\s*\([^)]*\)$/, '') : p.venue) + '</em></p></li>';
         }).join('');
 
+        // international collaborators (joint paper counts come from the author lists)
+        $('#people-root').innerHTML = (research.collaborators || []).map(function (c) {
+          const n = pubs.filter(function (p) { return p.authors.indexOf(c.match) >= 0; }).length;
+          return '<li class="card person"><h3>' + esc(c.name) + '</h3><p class="person-aff">' + esc(c.affiliation) + '</p>' +
+            '<p class="person-country">' + icon('map-pin') + esc(c.country) + '</p>' +
+            (n ? '<a class="more-link" href="publications.html?q=' + encodeURIComponent(c.search) + '">' + n + ' joint paper' + (n === 1 ? '' : 's') + ' ' + icon('arrow-right') + '</a>' : '') + '</li>';
+        }).join('');
+
         // collaboration interests
         const grp = function (title, icn, items) {
           return '<div class="card collab-card"><h3>' + icon(icn) + esc(title) + '</h3><ul class="collab-list">' + items.map(function (i) {

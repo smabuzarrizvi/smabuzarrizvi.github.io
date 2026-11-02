@@ -716,3 +716,12 @@ address { font-style: normal; }
 
 .theme-wide .summary + .mini-h, .theme-wide .tags { margin-top: 14px; }
 .theme-wide .theme-cols > div > .mini-h:first-child { margin-top: 0; }
+
+/* ---------- Collaborators ---------- */
+.people-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); }
+.person { display: flex; flex-direction: column; gap: 4px; padding: 18px; }
+.person h3 { margin: 0; font-size: 1.05rem; }
+.person-aff { margin: 0; font-size: .9rem; color: var(--text); }
+.person-country { margin: 0 0 8px; font-size: .84rem; color: var(--text-muted); display: flex; align-items: center; gap: 5px; }
+.person .more-link { margin-top: auto; font-size: .88rem; }
+@media (min-width: 1000px) { .people-list { grid-template-columns: repeat(5, minmax(0, 1fr)); } }

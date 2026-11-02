@@ -215,5 +215,42 @@
         ]
       }
     ]
-  }
+  },
+  "collaborators": [
+    {
+      "name": "Moe Z. Win",
+      "affiliation": "Massachusetts Institute of Technology (MIT)",
+      "country": "USA",
+      "match": "M.Z. Win",
+      "search": "Win"
+    },
+    {
+      "name": "Trung Q. Duong",
+      "affiliation": "Memorial University of Newfoundland",
+      "country": "Canada",
+      "match": "T.Q. Duong",
+      "search": "Duong"
+    },
+    {
+      "name": "Octavia A. Dobre",
+      "affiliation": "Memorial University of Newfoundland",
+      "country": "Canada",
+      "match": "O.A. Dobre",
+      "search": "Dobre"
+    },
+    {
+      "name": "Symeon Chatzinotas",
+      "affiliation": "University of Luxembourg",
+      "country": "Luxembourg",
+      "match": "S. Chatzinotas",
+      "search": "Chatzinotas"
+    },
+    {
+      "name": "Junaid ur Rehman",
+      "affiliation": "King Fahd University of Petroleum and Minerals",
+      "country": "Saudi Arabia",
+      "match": "J.U. Rehman",
+      "search": "Rehman"
+    }
+  ]
 }

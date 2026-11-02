@@ -192,7 +192,7 @@ Edit [`data/projects.json`](data/projects.json):
 
 | File | What it holds |
 |---|---|
-| `data/research.json` | Research themes: `tagline` and `relevant` (home page), `problem`, `approach` and `keywords` (research page); `collaboration` (home page); skill groups. Add a theme `id` here and in `publications.json`. |
+| `data/research.json` | Research themes (plus `collaborators`: name, affiliation, country and the author string used to count joint papers): `tagline` and `relevant` (home page), `problem`, `approach` and `keywords` (research page); `collaboration` (home page); skill groups. Add a theme `id` here and in `publications.json`. |
 | `data/achievements.json` | `awards` (a `paper` id links to the publication), `patents` (optional `filed` date and `description`), `certifications` (optional `description` and `image` of the certificate). |
 | `data/cv.json` | `education`: degree, institution, dates, `gpa`, `scholarships`, optional `advisor`, `thesis`, `expectedGraduation`, and `logo` (e.g. `assets/images/logos/khu.png`; the logo appears beside the card once the file exists). |
 
