@@ -209,7 +209,7 @@ ul { padding-left: 1.2em; }
 :root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 .nav-toggle { display: none; }
 
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .nav-toggle { display: inline-grid; }
   .site-nav { order: 3; }
   .nav-menu {
@@ -232,7 +232,7 @@ ul { padding-left: 1.2em; }
 main { display: block; }
 .section { padding: clamp(48px, 6vw, 80px) 0; }
 .section + .section { padding-top: 0; }
-.section-alt { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.section-alt { background: color-mix(in srgb, var(--bg-alt) 72%, transparent); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .section-alt + .section { padding-top: clamp(48px, 6vw, 80px); }
 .section-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
 .section-head h2 { margin: 0; }
@@ -726,3 +726,12 @@ address { font-style: normal; }
 .person .more-link { margin-top: auto; font-size: .88rem; }
 @media (min-width: 1000px) { .people-list { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .edu-logo { width: 160px; height: 108px; } }
+
+/* ---------- Quantum background canvas (js/background.js) ---------- */
+.bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+main, .site-footer { position: relative; z-index: 1; }
+.bg-toggle.off { color: var(--text-faint); }
+.bg-toggle.off .icon { opacity: .55; }
+.nav-wrap { gap: 8px; }
+@media print { .bg-canvas, .bg-toggle { display: none !important; } }
+.bg-toggle:disabled { cursor: not-allowed; opacity: .45; }
